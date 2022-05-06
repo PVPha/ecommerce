@@ -45,6 +45,7 @@ export default function DashboardOrderCreate(props) {
         orderList: listOrder,
         orderTotal: total,
         orderPaymentMethod: orderPaymentMethod,
+        orderStatus: "transported",
         orderDate: new Date(),
       })
       .then(() => {

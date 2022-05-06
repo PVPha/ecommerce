@@ -17,13 +17,8 @@ var productSchema = new mongoose.Schema(
     productType: String,
     productSold: Number,
     productDes: String,
+    productSpec: String,
     productVote: Array,
-    // name: String,
-    // ratingTitle: String,
-    // ratingText: String,
-    // ratingDate: Date,
-    // ratingStar: Number,
-    // ratingImg: Array
   },
   {
     versionKey: false,

@@ -33,6 +33,7 @@ module.exports.postOrder = async function (req, res) {
           orderList: req.body.orderList,
           orderTotal: req.body.orderTotal,
           orderPaymentMethod: req.body.orderPaymentMethod,
+          orderStatus: req.body.orderStatus,
           orderDate: req.body.orderDate,
         };
         const orderList = req.body.orderList;
@@ -71,6 +72,7 @@ module.exports.postOrder = async function (req, res) {
       orderList: req.body.orderList,
       orderTotal: req.body.orderTotal,
       orderPaymentMethod: req.body.orderPaymentMethod,
+      orderStatus: req.body.orderStatus,
       orderDate: req.body.orderDate,
     };
     const orderList = req.body.orderList;

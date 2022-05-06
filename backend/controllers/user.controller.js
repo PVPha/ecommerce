@@ -76,13 +76,24 @@ module.exports.updateUser = async function (req, res) {
     const imgArr = [];
     req.files.map((item) => {
       imgArr.push(
-        `http://localhost:4000/${item.path.split("/").slice(1).join("/")}`
+        `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
       );
     });
     const img = {
       userAvt: imgArr[0],
     };
-    User.findByIdAndUpdate({ _id: id }, img, function (error) {});
+    const data = {
+      userAvt: imgArr[0],
+      userName: req.body.userName,
+      userTinh: req.body.userTinh,
+      userHuyen: req.body.userHuyen,
+      userAddress: req.body.userAddress,
+      userPhone: req.body.userPhone,
+      userEmail: req.body.userEmail,
+      userCreateDay: new Date(),
+    };
+
+    User.findByIdAndUpdate({ _id: id }, data, function (error) {});
   }
 
   if (req.body.userPassword !== "") {

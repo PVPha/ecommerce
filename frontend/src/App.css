@@ -2046,6 +2046,13 @@
   margin-bottom: 60px;
 }
 
+.support-form { 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Search, Login Box */
 
 .Search, .Account, .Cart {
@@ -2447,7 +2454,8 @@
   -webkit-box-orient: vertical;
   max-width: 100%;
   overflow: hidden;
-  min-height: 40px;
+  min-height: 12rem;
+  text-align: start;
 }
 .product-info-vote {
   display: flex;

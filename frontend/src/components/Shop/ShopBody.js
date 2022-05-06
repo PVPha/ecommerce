@@ -188,33 +188,6 @@ function ShopBody(props) {
             </div>
             <div className="filter-line"></div>
           </div>
-          {/* <div className="shopbody-filter-size">
-            <div className="shopbody-filter-title">Size</div>
-            <div className="shopbody-filter-catelist">
-              <div
-                className="shopbody-filter-catelink"
-                id="small"
-                onClick={chooseSize}
-              >
-                Small
-              </div>
-              <div
-                className="shopbody-filter-catelink"
-                id="medium"
-                onClick={chooseSize}
-              >
-                Medium
-              </div>
-              <div
-                className="shopbody-filter-catelink"
-                id="large"
-                onClick={chooseSize}
-              >
-                Large
-              </div>
-            </div>
-            <div className="filter-line"></div>
-          </div> */}
           <div className="shopbody-filter-price">
             <div className="shopbody-filter-title">Price</div>
             <RangeSlider setSortPriceValue={setSortPriceValue} />

@@ -109,6 +109,7 @@ function CheckoutBody(props) {
       orderList: cartId,
       orderTotal: total,
       orderPaymentMethod: orderPaymentMethod2,
+      orderStatus: "transported",
       orderDate: new Date(),
     };
 

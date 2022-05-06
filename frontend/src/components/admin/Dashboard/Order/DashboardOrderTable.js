@@ -293,6 +293,9 @@ export default function DashboardUserTable(props) {
                     <td className="mobile-table-totalmoney">
                       <p>{item.orderTotal} đ</p>
                     </td>
+                    <td className="mobile-table-status">
+                      <p>{item.orderStatus} </p>
+                    </td>
                     <td>
                       <div className="action-table flex">
                         <div

@@ -21,6 +21,7 @@ import { ChatProvider } from "./contexts/Chat";
 // import LoadingPage from './components/LoadingPage';
 import Toast from "./components/Toast";
 import Checkout from "./pages/Checkout";
+import Support from "./pages/support";
 
 function App(props) {
   // const [loading, setLoading] = useState(true)
@@ -51,10 +52,8 @@ function App(props) {
               <Route path="/" exact component={Home}></Route>
               <Route path="/home" exact component={Home}></Route>
               <Route path="/news" exact component={News}></Route>
-              <Route path="/accessories" exact component={Shop}></Route>
               <Route path="/shop" exact component={Shop}></Route>
               <Route path="/shop/:search" exact component={Shop}></Route>
-              <Route path="/accessories/:cate" exact component={Shop}></Route>
               <Route path="/phone" exact component={Shop}></Route>
               <Route path="/phone/:cate" exact component={Shop}></Route>
               <Route path="/contact" exact component={Contact}></Route>
@@ -81,6 +80,7 @@ function App(props) {
                 component={Dashboard}
               ></Route>
               <Route path="/checkout" exact component={Checkout}></Route>
+              <Route path="/support" exact component={Support}></Route>
             </div>
             <OpenChatBtn />
           </Router>

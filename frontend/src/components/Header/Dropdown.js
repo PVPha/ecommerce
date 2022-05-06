@@ -16,29 +16,31 @@ function Dropdown(props) {
     props.handleLeaveHover();
   };
 
-  const sex = props.label.toLowerCase();
+  const type = props.label.toLowerCase();
 
   return (
     <div className="Dropdown">
-      <div className="dropdown-container flex">
+      <div className="dropdown-container flex flex-col">
         {props.dropdownContent.map((item, index) => {
           return (
             <div className="dropdown-col flex" key={index}>
               <div>
                 {item.dropdownTitle && (
                   <div
-                    id={`${sex}/${item.dropdownTitle.replace(/\s+/g, "")}`}
+                    id={`${type}/${item.dropdownTitle.replace(/\s+/g, "")}`}
                     onClick={redirect}
                     className="dropdown-title"
                   >
                     {item.dropdownTitle}
                   </div>
                 )}
-                <div className="dropdown-item flex-col">
+                <div className="dropdown-item flex-col ml-5">
                   {item.dropdownList.map((item, index) => {
                     return (
                       <div
-                        id={`${sex}/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                        id={`${type}/${item
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`}
                         onClick={redirect}
                         key={index}
                         style={{
@@ -60,14 +62,6 @@ function Dropdown(props) {
             width={"450"}
             height={"300"}
             imgs={[PhoneImg, PhoneImg2, PhoneImg3]}
-          ></DropdownSlider>
-        )}
-        {props.label === "accessories" && (
-          <DropdownSlider
-            id={props.id}
-            width={"450"}
-            height={"300"}
-            imgs={[accessoriesImg, accessoriesImg2, accessoriesImg3]}
           ></DropdownSlider>
         )}
       </div>

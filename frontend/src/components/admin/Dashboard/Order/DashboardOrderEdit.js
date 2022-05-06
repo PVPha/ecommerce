@@ -16,6 +16,7 @@ export default function DashboardOrderCreate(props) {
   const [orderProvince, setOrderProvince] = useState(null);
   const [orderDistric, setOrderDistric] = useState(null);
   const [orderPaymentMethod, setOrderPaymentMethod] = useState("");
+  const [orderStatus, setOrderStatus] = useState("");
   const [provinceId, setProvinceId] = useState("");
   const [product, setProduct] = useState([]);
   const [productList, setProductList] = useState([]);
@@ -38,11 +39,13 @@ export default function DashboardOrderCreate(props) {
           setOrderProvince(order.orderTinh);
           setOrderDistric(order.orderHuyen);
           setOrderPaymentMethod(order.orderPaymentMethod);
+          setOrderStatus(order.orderStatus);
           if (typeof order.orderList !== "undefined") {
             order.orderList.map((item) => {
               axios
                 .get(`http://localhost:4000/products/${item.id}`)
                 .then((res) => {
+                  setProductList([]);
                   res.data.count = item.amount;
                   setProductList((productList) => [...productList, res.data]);
                 });
@@ -100,6 +103,7 @@ export default function DashboardOrderCreate(props) {
     event.preventDefault();
     var listOrder = [];
     var total = 0;
+    console.log(productList);
     for (let i in productList) {
       const data = {
         id: productList[i]._id,
@@ -119,11 +123,13 @@ export default function DashboardOrderCreate(props) {
         orderList: listOrder,
         orderTotal: total,
         orderPaymentMethod: orderPaymentMethod,
+        orderStatus: orderStatus,
         orderDate: new Date(),
       })
       .then(() => {
         props.setCloseEditFunc(false);
         props.setToastFunc(true);
+        console.log(productList);
       });
   };
 
@@ -329,6 +335,7 @@ export default function DashboardOrderCreate(props) {
               >
                 {productList &&
                   productList.map((item, index) => {
+                    console.log(productList.length);
                     return (
                       <div key={index} className="order-list-item">
                         <img src={item.productImg[0]} alt=""></img>
@@ -418,8 +425,26 @@ export default function DashboardOrderCreate(props) {
               </select>
             </div>
           </div>
+          <div className="create-box-row flex">
+            <div className="dashboard-left flex">Status</div>
+            <div className="dashboard-right">
+              <select
+                className="input"
+                type="text"
+                value={orderStatus || ""}
+                onChange={(event) => {
+                  setOrderStatus(event.target.value);
+                }}
+                required
+              >
+                <option value="transported">transported</option>
+                <option value="delivery">delivery</option>
+                <option value="completed">completed</option>
+              </select>
+            </div>
+          </div>
           <div className="flex-center" style={{ marginTop: "40px" }}>
-            <button className="create-box-btn btn">Create order</button>
+            <button className="create-box-btn btn">Update order</button>
           </div>
         </form>
       </div>

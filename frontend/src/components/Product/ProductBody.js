@@ -279,7 +279,10 @@ export default function ProductBody(props) {
         </div>
         <div className="product-info-detail">
           <div className="product-info-title">{product.productName}</div>
-          <div className="product-info-des">{product.productDes}</div>
+          <div
+            className="product-info-des flex flex-col"
+            dangerouslySetInnerHTML={{ __html: product.productSpec }}
+          ></div>
           <div className="product-info-vote" onClick={props.scrollOnLick}>
             <div style={{ height: "40px" }}>
               {Object.keys(ratingStar).length !== 0 && (

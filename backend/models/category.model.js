@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 var cateSchema = new mongoose.Schema(
   {
     cateName: String,
-    type: String,
+    groupCate: String,
   },
   {
     versionKey: false,

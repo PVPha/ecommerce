@@ -49,7 +49,7 @@ export default function ProductRecommend(props) {
         <div className="newsletter-title">Related products</div>
         <div className="RecommendProduct">
           {recommendProducts2.slice(0, 5).map(function (item, index) {
-            return <Product key={index} product={item} width={"50%"} />;
+            return <Product key={index} product={item} width={"20%"} />;
           })}
         </div>
       </div>

@@ -12,8 +12,8 @@ import { withRouter } from "react-router-dom";
 function Shop(props) {
   const [products, setProducts] = useState([]);
   const [sortedCate, setSortedCate] = useState([]);
+  const [productGroupCateList, setProductGroupCateList] = useState([]);
   let type = props.location.pathname.split("/")[1];
-
   let cate = props.location.pathname.split("/")[2];
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -50,22 +50,30 @@ function Shop(props) {
         setProducts(virtualData);
       });
     } else {
-      type.toLowerCase() === "accessories"
-        ? (type = "accessories")
-        : (type = "phone");
       axios.get(`http://localhost:4000/products`).then((res) => {
+        const grCateList = Object.values(
+          res.data.reduce((a, { productGroupCate }) => {
+            a[productGroupCate] = a[productGroupCate] || { productGroupCate };
+            return a;
+          }, Object.create(null))
+        );
+
+        for (let i in grCateList) {
+          grCateList[i] = grCateList[i].productGroupCate;
+        }
         const virtualCate = [];
-        for (let i in res.data) {
-          if (type === "phone") {
-            if (res.data[i].productType === "Phone") {
-              virtualCate.push(res.data[i]);
-            }
-          } else {
-            if (res.data[i].productType === "Accessories") {
+        if (grCateList.includes(cate)) {
+          for (let i in res.data) {
+            if (res.data[i].productGroupCate == cate) {
               virtualCate.push(res.data[i]);
             }
           }
+        } else {
+          for (let i in res.data) {
+            virtualCate.push(res.data[i]);
+          }
         }
+
         //Get all category
         const sortedcate = Object.values(
           virtualCate.reduce((a, { productCate }) => {
@@ -79,28 +87,40 @@ function Shop(props) {
         setSortedCate(sortedcate);
 
         const virtualData = [];
-        for (let i in res.data) {
-          if (!cate) {
-            if (res.data[i].productType.toLowerCase() === type) {
+        if (grCateList.includes(cate)) {
+          for (let i in res.data) {
+            if (cate) {
+              if (res.data[i].productGroupCate.includes(cate)) {
+                virtualData.push(res.data[i]);
+              }
+            } else {
               virtualData.push(res.data[i]);
             }
-          } else {
-            if (
-              res.data[i].productType === type &&
-              cate &&
-              res.data[i].productGroupCate
-                .toLowerCase()
-                .split(" ")
-                .join("-") === cate
-            ) {
-              virtualData.push(res.data[i]);
-            } else if (
-              res.data[i].productType.toLowerCase() === type &&
-              cate &&
-              res.data[i].productCate.toLowerCase().split(" ").join("-") ===
-                cate
-            ) {
-              virtualData.push(res.data[i]);
+          }
+        } else {
+          for (let i in res.data) {
+            if (!cate) {
+              if (res.data[i].productType.toLowerCase() === type) {
+                virtualData.push(res.data[i]);
+              }
+            } else {
+              if (
+                res.data[i].productType === type &&
+                cate &&
+                res.data[i].productGroupCate
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-") === cate
+              ) {
+                virtualData.push(res.data[i]);
+              } else if (
+                res.data[i].productType.toLowerCase() === type &&
+                cate &&
+                res.data[i].productCate.toLowerCase().split(" ").join("-") ===
+                  cate
+              ) {
+                virtualData.push(res.data[i]);
+              }
             }
           }
         }

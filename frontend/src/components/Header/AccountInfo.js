@@ -95,6 +95,7 @@ function AccountInfo(props) {
       .then((res) => {
         setUserInfoFunc(res.data.user);
         localStorage.setItem("token", res.data.token);
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -372,6 +373,9 @@ function AccountInfo(props) {
                     <th className="table-new-title table-order-title">
                       Total money
                     </th>
+                    <th className="table-new-title table-order-title">
+                      Status
+                    </th>
                   </tr>
                   {orderList.reverse().map((item, index) => {
                     const date = new Date(item.orderDate);
@@ -432,6 +436,9 @@ function AccountInfo(props) {
                         </td>
                         <td>
                           <p>{item.orderTotal} đ</p>
+                        </td>
+                        <td>
+                          <p>{item.orderStatus} </p>
                         </td>
                       </tr>
                     );

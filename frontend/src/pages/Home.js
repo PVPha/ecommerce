@@ -24,7 +24,7 @@ function Home() {
     <div className="Home">
       <Header />
       <Banner collection={collection} />
-      <RecommendBanner />
+      {/* <RecommendBanner /> */}
       <HomeTab />
       <Collection collection={collection} />
       <FashionNews />

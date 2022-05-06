@@ -74,20 +74,20 @@ function Header(props) {
       },
       {
         id: "3",
-        label: "Accessories",
-        url: "/accessories",
-        dropdownContent: [],
-      },
-      {
-        id: "4",
         label: "News",
         url: "/news",
         dropdownContent: [],
       },
       {
-        id: "5",
+        id: "4",
         label: "Contact",
         url: "/contact",
+        dropdownContent: [],
+      },
+      {
+        id: "5",
+        label: "Support",
+        url: "/support",
         dropdownContent: [],
       },
     ];
@@ -105,39 +105,9 @@ function Header(props) {
         }
       }
 
-      let groupCateAccessories = accessoriesProduct.filter(function (
-        elem,
-        index,
-        self
-      ) {
-        return index === self.indexOf(elem);
-      });
       let groupCatePhone = PhoneProduct.filter(function (elem, index, self) {
         return index === self.indexOf(elem);
       });
-      const accessoriesDropdownContent = [];
-      for (let i in groupCateAccessories) {
-        let accessoriesData = {};
-        let cateList = [];
-        for (let j in res.data) {
-          if (
-            res.data[j].productGroupCate === groupCateAccessories[i] &&
-            res.data[j].productType === "Accessories"
-          ) {
-            cateList.push(res.data[j].productCate);
-          }
-        }
-        let cateList2 = cateList.filter(function (elem, index, self) {
-          return index === self.indexOf(elem);
-        });
-        // console.log(cateList)
-        accessoriesData = {
-          dropdownTitle: groupCateAccessories[i],
-          dropdownList: cateList2,
-        };
-        accessoriesDropdownContent.push(accessoriesData);
-        console.log(accessoriesDropdownContent);
-      }
       const PhoneDropdownContent = [];
       for (let i in groupCatePhone) {
         let PhoneData = {};
@@ -161,9 +131,6 @@ function Header(props) {
       }
 
       for (let i in virtualNavBar) {
-        if (virtualNavBar[i].label === "Accessories") {
-          virtualNavBar[i].dropdownContent = accessoriesDropdownContent;
-        }
         if (virtualNavBar[i].label === "Phone") {
           virtualNavBar[i].dropdownContent = PhoneDropdownContent;
         }

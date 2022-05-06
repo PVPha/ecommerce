@@ -35,15 +35,17 @@ function MenuItemDropdown(props) {
       >
         {props.label}
       </Link>
-      {dropdownHover === true && props.dropdownContent.length > 0 && (
-        <Dropdown
-          className="dropdown-display"
-          dropdownContent={props.dropdownContent}
-          label={props.label}
-          scrolled={props.scrolled}
-          handleLeaveHover={props.handleLeaveHover}
-        />
-      )}
+
+      <Dropdown
+        className="dropdown-display"
+        dropdownContent={props.dropdownContent}
+        label={props.label}
+        scrolled={props.scrolled}
+        handleLeaveHover={props.handleLeaveHover}
+      />
+      {/* {dropdownHover === true && props.dropdownContent.length > 0 && (
+        
+      )} */}
     </li>
   );
 }

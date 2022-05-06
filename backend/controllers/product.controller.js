@@ -56,11 +56,13 @@ module.exports.postProduct = async function (req, res) {
     productFinalPrice:
       req.body.productPrice -
       req.body.productPrice * (req.body.productSale / 100),
+    productGroupCate: req.body.productGroupCate,
     productCate: req.body.productCate,
     productType: req.body.productType,
     productDate: req.body.productDate,
     productImg: imgArr,
     productDes: req.body.productDes,
+    productSpec: req.body.productSpec,
     productSold: 0,
   };
 
@@ -145,6 +147,7 @@ module.exports.updateProduct = async function (req, res) {
       req.body.productPrice -
       req.body.productPrice * (req.body.productSale / 100),
     productCate: req.body.productCate,
+    productGroupCate: req.body.productGroupCate,
     productType: req.body.productType,
     productDes: req.body.productDes,
   };

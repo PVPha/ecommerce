@@ -57,11 +57,6 @@ function Dashboard(props) {
       icon: faUser,
     },
     {
-      id: "7",
-      name: "Collection",
-      icon: faShoppingBag,
-    },
-    {
       id: "8",
       name: "Subscribers",
       icon: faEnvelope,

@@ -2,6 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import DashboardSpecifications from "./DashboardSpecifications";
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { stateFromHTML } from "draft-js-import-html";
+import { EditorState, convertToRaw, ContentState } from "draft-js";
+import draftToHtml from "draftjs-to-html";
+import htmlToDraft from "html-to-draftjs";
 
 export default function DashboardProductEdit(props) {
   const createForm = useRef();
@@ -13,6 +20,7 @@ export default function DashboardProductEdit(props) {
   const [inputValue, setInputValue] = useState([]);
   const [cate, setCate] = useState([]);
   const [file, setFile] = useState([]);
+  const [newsContent, setNewsContent] = useState("");
   const product = props.product;
 
   const [productImg, setProductImg] = useState([]);
@@ -71,6 +79,7 @@ export default function DashboardProductEdit(props) {
 
   useEffect(() => {
     if (product) {
+      setNewsContent(product.productSpec);
       setProductName(product.productName);
       setProductImg(product.productImg);
       setProductSale(product.productSale);
@@ -80,8 +89,16 @@ export default function DashboardProductEdit(props) {
       setProductType(product.productType);
       setProductSize(product.productSize);
       setProductGroupCate(product.productGroupCate);
+
       axios.get(`http://localhost:4000/category`).then((res) => {
         setCate(res.data);
+        const test = Object.values(
+          res.data.reduce((a, { groupCate }) => {
+            a[groupCate] = a[groupCate] || { groupCate };
+            return a;
+          }, Object.create(null))
+        );
+        setProductGroupCateList(res.data);
       });
       axios.get(`http://localhost:4000/products`).then((res) => {
         const test = Object.values(
@@ -94,7 +111,6 @@ export default function DashboardProductEdit(props) {
       });
     }
   }, [product]);
-
   const onSubmit = (event) => {
     event.preventDefault();
     const config = {
@@ -116,8 +132,9 @@ export default function DashboardProductEdit(props) {
     formData.append("productCate", productCate);
     formData.append("productGroupCate", productGroupCate);
     // formData.append("productSize", productSize);
+    formData.append("productSpec", newsContent);
     formData.append("productDes", productDes);
-    formData.append("productType", productType);
+    formData.append("productType", "Phone");
     formData.append("productDate", new Date());
     axios
       .post(
@@ -137,11 +154,11 @@ export default function DashboardProductEdit(props) {
   const addNewCate = () => {
     axios.post("http://localhost:4000/category", {
       cateName: inputValue.cate,
-      type: productType,
+      groupCate: productGroupCate,
     });
     setCate((cate) => [
       ...cate,
-      { cateName: inputValue.cate, type: productType },
+      { cateName: inputValue.cate, groupCate: productGroupCate },
     ]);
     setProductCate(inputValue.cate);
     cateInput.current.value = "";
@@ -295,20 +312,43 @@ export default function DashboardProductEdit(props) {
               </div>
             </div>
             <div className="create-box-row flex">
-              <div className="dashboard-left flex">Type: </div>
-              <div className="dashboard-right flex">
+              <div className="dashboard-left flex">Category group</div>
+              <div className="dashboard-right flex-center">
                 <select
-                  style={{ width: "200px" }}
+                  style={{ width: "350px" }}
                   onChange={(event) => {
-                    setProductType(event.target.value);
+                    setProductGroupCate(event.target.value);
                   }}
-                  value={productType}
-                  required
+                  value={productGroupCate}
                 >
-                  <option></option>
-                  <option>Phone</option>
-                  <option>Accessories</option>
+                  {productGroupCateList.length > 0 &&
+                    productGroupCateList.map((item, index) => {
+                      return <option key={index}>{item.groupCate}</option>;
+                    })}
                 </select>
+                <input
+                  type="text"
+                  name="groupCate"
+                  placeholder="New category group?"
+                  style={{ margin: "0 10px" }}
+                  onChange={handleOnChange}
+                  ref={groupCateInput}
+                ></input>
+                <div
+                  className="btn"
+                  style={{
+                    fontSize: "14px",
+                    fontFamily: "sans-serif",
+                    fontWeight: "300",
+                    padding: "0 10px",
+                    cursor: "pointer",
+                    width: "350px",
+                    height: "30px",
+                  }}
+                  onClick={addNewGroupCate}
+                >
+                  Add
+                </div>
               </div>
             </div>
             <div className="create-box-row flex">
@@ -324,7 +364,7 @@ export default function DashboardProductEdit(props) {
                   <option></option>
                   {cate.length > 0 &&
                     cate.map((item, index) => {
-                      if (item.type == productType) {
+                      if (item.groupCate == productGroupCate) {
                         return <option key={index}>{item.cateName}</option>;
                       }
                     })}
@@ -354,7 +394,15 @@ export default function DashboardProductEdit(props) {
                 </div>
               </div>
             </div>
-
+            <div className="create-box-row flex">
+              <div className="dashboard-left flex">Specifications </div>
+              <div className="dashboard-right">
+                <DashboardSpecifications
+                  setNewsContent={setNewsContent}
+                  newsContent={newsContent}
+                ></DashboardSpecifications>
+              </div>
+            </div>
             <div className="create-box-row flex">
               <div className="dashboard-left flex">Description </div>
               <div className="dashboard-right">
