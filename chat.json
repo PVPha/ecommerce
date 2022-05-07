@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "6272b650fea2591f1895a29d"
+  },
+  "chatContent": [
+    {
+      "text": "tesst chat",
+      "time": "2022-05-04T17:22:24.088Z"
+    },
+    {
+      "fromAdmin": true,
+      "text": "tesst rep",
+      "time": "2022-05-04T17:22:54.746Z"
+    },
+    {
+      "text": "tesst rep 2",
+      "time": "2022-05-04T17:23:16.659Z"
+    }
+  ],
+  "userInfo": {
+    "_id": "62722418eac1f52d44ca6bbb",
+    "userAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163",
+    "userName": "pham pha",
+    "userTinh": "",
+    "userHuyen": "",
+    "userAddress": "",
+    "userPhone": "",
+    "userEmail": "phampha8a3@gmail.com",
+    "userPassword": "$2b$10$v6xXnpzlD0DPytJUy1Ujn.oUQruTtzMMmQhcwKZRV1nJYfMFQUpNu",
+    "userRole": "admin",
+    "userCreateDay": "2022-05-04T06:58:32.786Z"
+  },
+  "sessionId": "62722418eac1f52d44ca6bbb",
+  "chatName": "pham pha",
+  "chatEmail": "phampha8a3@gmail.com"
+}]

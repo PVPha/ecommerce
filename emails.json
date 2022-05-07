@@ -1,0 +1,168 @@
+[{
+  "_id": {
+    "$oid": "6272ce696383f553647db84d"
+  },
+  "subscriberEmail": "phampha8a3@gmail.com",
+  "sendedEmail": [
+    {
+      "_id": {
+        "$oid": "6272ce696383f553647db84e"
+      },
+      "emailId": {
+        "$oid": "6272ce696383f553647db84c"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "6272dd466cef605af839683a"
+      },
+      "emailId": {
+        "$oid": "6272dd466cef605af8396839"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "6272e58c6d2a8b38b4926696"
+      },
+      "emailId": {
+        "$oid": "6272e58c6d2a8b38b4926695"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "6272f3076d2a8b38b492669a"
+      },
+      "emailId": {
+        "$oid": "6272f3076d2a8b38b4926699"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "6274d7de336d4514bc27c429"
+      },
+      "emailId": {
+        "$oid": "6274d7de336d4514bc27c428"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "6274d8acedef1b5c6cf0c498"
+      },
+      "emailId": {
+        "$oid": "6274d8acedef1b5c6cf0c497"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "6274db18edef1b5c6cf0c49c"
+      },
+      "emailId": {
+        "$oid": "6274db18edef1b5c6cf0c49b"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "62750214edef1b5c6cf0c4a1"
+      },
+      "emailId": {
+        "$oid": "62750214edef1b5c6cf0c4a0"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "6275044eedef1b5c6cf0c4a4"
+      },
+      "emailId": {
+        "$oid": "6275044eedef1b5c6cf0c4a3"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "627505cfedef1b5c6cf0c4a9"
+      },
+      "emailId": {
+        "$oid": "627505cfedef1b5c6cf0c4a8"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "627505cfedef1b5c6cf0c4b0"
+      },
+      "emailId": {
+        "$oid": "627505cfedef1b5c6cf0c4af"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "627505cfedef1b5c6cf0c4ae"
+      },
+      "emailId": {
+        "$oid": "627505cfedef1b5c6cf0c4ad"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "627505d0edef1b5c6cf0c4b3"
+      },
+      "emailId": {
+        "$oid": "627505d0edef1b5c6cf0c4b2"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "627505daedef1b5c6cf0c4b5"
+      },
+      "emailId": {
+        "$oid": "627505daedef1b5c6cf0c4b4"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "627505daedef1b5c6cf0c4b7"
+      },
+      "emailId": {
+        "$oid": "627505daedef1b5c6cf0c4b6"
+      },
+      "isSeen": false
+    },
+    {
+      "_id": {
+        "$oid": "62750f762b13fe322c589d97"
+      },
+      "emailId": {
+        "$oid": "62750f762b13fe322c589d96"
+      },
+      "isSeen": false
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "627551f069269b362c7267b8"
+  },
+  "subscriberEmail": "pvpdaoclone1@gmail.com",
+  "sendedEmail": [
+    {
+      "_id": {
+        "$oid": "627551f069269b362c7267b9"
+      },
+      "emailId": {
+        "$oid": "627551f069269b362c7267b7"
+      },
+      "isSeen": false
+    }
+  ]
+}]

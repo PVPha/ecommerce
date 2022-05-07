@@ -1,0 +1,158 @@
+[{
+  "_id": {
+    "$oid": "5fabf3ca1a0a3bb740c84bae"
+  },
+  "userAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163",
+  "userName": "m",
+  "userTinh": "",
+  "userHuyen": "",
+  "userAddress": "",
+  "userPhone": "",
+  "userEmail": "m",
+  "userPassword": "$2b$10$v8MnZZfyH5Xri5K9QdxrKu43cWWoPmsKKQ.rDlcwta8dPhEd3Yz7e",
+  "userRole": "user",
+  "userCreateDay": {
+    "$date": {
+      "$numberLong": "1602842524545"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5fa6136d3be7973774261918"
+  },
+  "userAvt": "http://localhost:4000/images/50efcce9bd1ed2c0026564fb2efed454",
+  "userName": "Dương Bảo Nam",
+  "userTinh": "Tỉnh Phú Yên",
+  "userHuyen": "Thị xã Sông Cầu",
+  "userEmail": "nam",
+  "userPassword": "$2b$10$N17YWCKaHD/K78MiCHd36ewBMfB.WrN/EKf2m9SuTDqCVR/sqbUSS",
+  "userPhone": "123",
+  "userAddress": "233 bui thi xuan",
+  "userRole": "admin"
+},{
+  "_id": {
+    "$oid": "5fabf06625c1a5b62908e9c4"
+  },
+  "userAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163",
+  "userName": "THủy Tiên",
+  "userTinh": "Tỉnh Hà Giang",
+  "userHuyen": "Huyện Đồng Văn",
+  "userAddress": "12",
+  "userPhone": "123",
+  "userEmail": "j",
+  "userPassword": "$2b$10$8hcBGQy9C7.KE3eJKiiN7.Ie1DeXX5AQjVsofbAQibu9rh.4EJkJy",
+  "userRole": "user",
+  "userCreateDay": {
+    "$date": {
+      "$numberLong": "1602842524545"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5fb24e1cf8fa890fcc891cbd"
+  },
+  "userAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163",
+  "userName": "h",
+  "userTinh": "",
+  "userHuyen": "",
+  "userAddress": "",
+  "userPhone": "",
+  "userEmail": "h",
+  "userPassword": "$2b$10$dWG/33HN7uIfFvfutNxK4Oy89L72uLjsIGa2L2IPiEKxZDOY9EGKS",
+  "userRole": "user",
+  "userCreateDay": {
+    "$date": {
+      "$numberLong": "1605520924545"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6272d3293c943760f0f47e71"
+  },
+  "userAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163",
+  "userName": "pham pha 2",
+  "userTinh": "null",
+  "userHuyen": "null",
+  "userAddress": "",
+  "userPhone": "",
+  "userEmail": "pvpdaoclone1@gmail.com",
+  "userPassword": "$2b$10$DzXgRD5nl0CwoWDfHiHUVuGeqRsL2SQUt.4.Wbwkl3WnqJsR62lPW",
+  "userRole": "user",
+  "userCreateDay": {
+    "$date": {
+      "$numberLong": "1651692329928"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6272d46b3c943760f0f47e74"
+  },
+  "userAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163",
+  "userName": "mh",
+  "userTinh": "",
+  "userHuyen": "",
+  "userAddress": "",
+  "userPhone": "",
+  "userEmail": "pvpdaoclone2@gmail.com",
+  "userPassword": "$2b$10$lW.XYvOhgkgeE3tEuXVpeOlgu.cAUVqTJcKpB1/aA94Zw90KDv5XC",
+  "userRole": "user",
+  "userCreateDay": {
+    "$date": {
+      "$numberLong": "1651692651531"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6272f6d36d2a8b38b492669b"
+  },
+  "userAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163",
+  "userName": "final test",
+  "userTinh": "",
+  "userHuyen": "",
+  "userAddress": "",
+  "userPhone": "",
+  "userEmail": "pvpdaoclone3@gmail.com",
+  "userPassword": "$2b$10$MjkSpvxUoFMlM7EiuN1eVuoviLmX.eB6U6WBJEgCE6/NfOxu8a/ve",
+  "userRole": "user",
+  "userCreateDay": {
+    "$date": {
+      "$numberLong": "1651701459132"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62751597804d9362cce5b978"
+  },
+  "userAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163",
+  "userName": "phampha",
+  "userTinh": "",
+  "userHuyen": "",
+  "userAddress": "",
+  "userPhone": "",
+  "userEmail": "admin@gmail.com",
+  "userPassword": "$2b$10$OwnhlnJdSaq4H3UktCQ1Gu.yWsf62v.FmVS.Ja6vmZcLJvmLDPMLa",
+  "userRole": "admin",
+  "userCreateDay": {
+    "$date": {
+      "$numberLong": "1651840407195"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62751665bf40a540a8f1e8aa"
+  },
+  "userAvt": "http://localhost:4000/images/6ed9509adeceb8c8ea78a8148e248953",
+  "userName": "pham pha",
+  "userTinh": "Tỉnh Hoà Bình",
+  "userHuyen": "null",
+  "userAddress": "dia chi",
+  "userPhone": "123456789",
+  "userEmail": "phampha8a3@gmail.com",
+  "userPassword": "$2b$10$4hKE95BLwPN8EnWdTMXUyuh/mean5QK7sAq.BAVGKBFvUXt4KaUZy",
+  "userRole": "user",
+  "userCreateDay": {
+    "$date": {
+      "$numberLong": "1651840708509"
+    }
+  }
+}]

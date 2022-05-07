@@ -26,7 +26,7 @@ function Home() {
       <Banner collection={collection} />
       {/* <RecommendBanner /> */}
       <HomeTab />
-      <Collection collection={collection} />
+      {/* <Collection collection={collection} /> */}
       <FashionNews />
       <Newsletter />
       <Footer />

@@ -1,0 +1,427 @@
+[{
+  "_id": {
+    "$oid": "627286d31c75874c783417a3"
+  },
+  "productImg": [
+    "http://localhost:4000/images/eedf95f99a690576f024701c2b83321b",
+    "http://localhost:4000/images/7739510e9e15fea4889c05be974aac67",
+    "http://localhost:4000/images/c9e98aaa18078ccf04be6c9c272df9ac"
+  ],
+  "productSize": [
+    ""
+  ],
+  "productVote": [],
+  "productName": "S22 Ultra ",
+  "productSale": 30,
+  "productPrice": 10000000,
+  "productFinalPrice": 7000000,
+  "productCate": "S seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651672787000"
+    }
+  },
+  "productDes": "samsung",
+  "productSold": 7,
+  "productGroupCate": "SamSung"
+},{
+  "_id": {
+    "$oid": "6272b0e2fea2591f1895a29c"
+  },
+  "productImg": [
+    "http://localhost:4000/images/2acc242d7ec334b0103f77b40eed50d4",
+    "http://localhost:4000/images/13144db4a5a6fcc92ff6c1723ef85660",
+    "http://localhost:4000/images/2d02f5d8a5f9db74a111e0e71ffe0b4b"
+  ],
+  "productSize": [
+    ""
+  ],
+  "productVote": [
+    {
+      "ratingName": "pham pha",
+      "ratingDate": "Thu May 05 2022 00:21:49 GMT+0700 (Indochina Time)",
+      "ratingText": "tesst review",
+      "ratingEmail": "phampha8a3@gmail.com",
+      "ratingStar": 5,
+      "ratingAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163"
+    }
+  ],
+  "productName": "Iphone 13",
+  "productSale": 0,
+  "productPrice": 20000000,
+  "productFinalPrice": 20000000,
+  "productCate": "13 seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651683554000"
+    }
+  },
+  "productDes": "apple",
+  "productSold": 4,
+  "productGroupCate": "Apple"
+},{
+  "_id": {
+    "$oid": "6272dd466cef605af8396838"
+  },
+  "productImg": [
+    "http://localhost:4000/images/0a7982d981b95dd5c3265f15ba34660b",
+    "http://localhost:4000/images/1831bc585eb0d2ee29b09e7636bc0d0c",
+    "http://localhost:4000/images/4c7553f8feb5ab676f81a3fd9f456649"
+  ],
+  "productSize": [],
+  "productVote": [
+    {
+      "ratingName": "pham pha",
+      "ratingDate": "Fri May 06 2022 17:38:27 GMT+0700 (Indochina Time)",
+      "ratingText": "test",
+      "ratingEmail": "phampha8a3@gmail.com",
+      "ratingStar": 5,
+      "ratingAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163"
+    }
+  ],
+  "productName": "zflip3",
+  "productSale": 0,
+  "productPrice": 20000000,
+  "productFinalPrice": 20000000,
+  "productCate": "Z seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651694918000"
+    }
+  },
+  "productDes": "zflip 3",
+  "productSold": 1,
+  "productGroupCate": "SamSung"
+},{
+  "_id": {
+    "$oid": "6272e58c6d2a8b38b4926694"
+  },
+  "productImg": [
+    "http://localhost:4000/images/bfb04ed464b040795bad58c739913cf1",
+    "http://localhost:4000/images/244b02d62b550239b92458b7396dede5",
+    "http://localhost:4000/images/2615706851212d8f32c125409fbdb4c7"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "galaxy A73",
+  "productSale": 10,
+  "productPrice": 10000000,
+  "productFinalPrice": 9000000,
+  "productCate": "A seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651697036000"
+    }
+  },
+  "productDes": "a73",
+  "productSold": 0,
+  "productGroupCate": "SamSung"
+},{
+  "_id": {
+    "$oid": "6274d7de336d4514bc27c427"
+  },
+  "productImg": [
+    "http://localhost:4000/images/2c16de9029aed17d565987f9b67b7a3c",
+    "http://localhost:4000/images/a5e4a285ff81f5f0ccc2836547e204be",
+    "http://localhost:4000/images/11a22f3063788df85aded5032ff2c8a6"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "S22",
+  "productSale": 50,
+  "productPrice": 200000000,
+  "productFinalPrice": 100000000,
+  "productCate": "S seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651824606000"
+    }
+  },
+  "productDes": "tsest",
+  "productSold": 0,
+  "productGroupCate": "SamSung"
+},{
+  "_id": {
+    "$oid": "6274d8abedef1b5c6cf0c496"
+  },
+  "productImg": [
+    "http://localhost:4000/images/65970a2dd642aaf56f20bd5ee4bbaaa0",
+    "http://localhost:4000/images/c3f6dfeb43d2d82c346d3ae0182d9bf8",
+    "http://localhost:4000/images/95eb7de9cf5c100a5e28ca538e3e77db"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "S22 99%",
+  "productSale": 20,
+  "productPrice": 10000000,
+  "productFinalPrice": 8000000,
+  "productGroupCate": "SamSung",
+  "productCate": "S seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651824811000"
+    }
+  },
+  "productDes": "tets",
+  "productSold": 0
+},{
+  "_id": {
+    "$oid": "6274db18edef1b5c6cf0c49a"
+  },
+  "productImg": [
+    "http://localhost:4000/images/05243889cf2fd3d7929a9d0e9c5d4a9d",
+    "http://localhost:4000/images/d3827543ea2e8b4a6044e278fccaac66",
+    "http://localhost:4000/images/bee191ae042c04dbcfd6a32edc872649"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "iphone 13 99%",
+  "productSale": 10,
+  "productPrice": 25000000,
+  "productFinalPrice": 22500000,
+  "productGroupCate": "Apple",
+  "productCate": "13 seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651825432000"
+    }
+  },
+  "productDes": "test",
+  "productSold": 0
+},{
+  "_id": {
+    "$oid": "62750213edef1b5c6cf0c49f"
+  },
+  "productImg": [
+    "http://localhost:4000/images/687e59f0aed6d918a84bc0fc75199e5d",
+    "http://localhost:4000/images/8f98592a9d3309d6cd607f79bea18f5b"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "testt",
+  "productSale": 1,
+  "productPrice": 10,
+  "productFinalPrice": 9.9,
+  "productGroupCate": "Apple",
+  "productCate": "13 seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651835411000"
+    }
+  },
+  "productDes": "<p>Hey this <strong>editor</strong> rocks 😀</p>\r\n",
+  "productSold": 0
+},{
+  "_id": {
+    "$oid": "6275044cedef1b5c6cf0c4a2"
+  },
+  "productImg": [
+    "http://localhost:4000/images/cdf9bc3b56070bd6bc8f1098603996fe",
+    "http://localhost:4000/images/3fdb1cc9cb95ecfe7ca645eaf7a1e17d",
+    "http://localhost:4000/images/6a75f5a7d21f7a7ed35f4c125342fde2"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "testfinal",
+  "productSale": 10,
+  "productPrice": 1000000,
+  "productFinalPrice": 900000,
+  "productGroupCate": "SamSung",
+  "productCate": "A seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651835980000"
+    }
+  },
+  "productDes": "<p>Display: 7.6 inches, 180.8 cm2</p>\r\n<p>OS: Android 10</p>\r\n<p>Main Camera: 12 MP, f/1.8, 26mm (wide), 1/1.76</p>\r\n<p>Selfie Camera: 10 MP, f/2.2, 26mm (wide), 1.22µm; 4K@30fps, 1080p@30fps, gyro-EIS</p>\r\n<p>CPU: Octa-core (1x3.09 GHz Kryo 585 &amp; 3x2.42 GHz Kryo 585 &amp; 4x1.8 GHz Kryo 585)</p>\r\n<p>Memory: 256GB, 12GB RAM</p>\r\n<p>Card Slot: No</p>\r\n<p>SIM: Nano-SIM and/or eSIM</p>\r\n<p>Battery: Li-Po 4500 mAh, non-removable</p>\r\n<p></p>\r\n<p></p>\r\n",
+  "productSold": 0
+},{
+  "_id": {
+    "$oid": "627505cbedef1b5c6cf0c4a6"
+  },
+  "productImg": [
+    "http://localhost:4000/images/4d4ec04b1605f108350a85a4f27bf1a9"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "testttttt",
+  "productSale": 1,
+  "productPrice": 1,
+  "productFinalPrice": 0.99,
+  "productGroupCate": "Apple",
+  "productCate": "13 seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651836363000"
+    }
+  },
+  "productDes": "<p>Display:  disply</p>\r\n<p>OS:  os</p>\r\n<p>Main Camera:  mc</p>\r\n<p>Selfie Camera:  sc</p>\r\n<p>CPU:  cpu</p>\r\n<p>Memory: mm&nbsp;</p>\r\n<p>Card Slot:  cs</p>\r\n<p>SIM:  sim</p>\r\n<p>Battery: bt</p>\r\n",
+  "productSold": 0
+},{
+  "_id": {
+    "$oid": "627505ceedef1b5c6cf0c4a7"
+  },
+  "productImg": [
+    "http://localhost:4000/images/7b159764258f162406e68bbbb2a23774"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "testttttt",
+  "productSale": 1,
+  "productPrice": 1,
+  "productFinalPrice": 0.99,
+  "productGroupCate": "Apple",
+  "productCate": "13 seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651836366000"
+    }
+  },
+  "productDes": "<p>Display:  disply</p>\r\n<p>OS:  os</p>\r\n<p>Main Camera:  mc</p>\r\n<p>Selfie Camera:  sc</p>\r\n<p>CPU:  cpu</p>\r\n<p>Memory: mm&nbsp;</p>\r\n<p>Card Slot:  cs</p>\r\n<p>SIM:  sim</p>\r\n<p>Battery: bt</p>\r\n",
+  "productSold": 0
+},{
+  "_id": {
+    "$oid": "627505cfedef1b5c6cf0c4ab"
+  },
+  "productImg": [
+    "http://localhost:4000/images/dc3115db6964ee587417d7165e0474ec"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "testttttt",
+  "productSale": 1,
+  "productPrice": 1,
+  "productFinalPrice": 0.99,
+  "productGroupCate": "Apple",
+  "productCate": "13 seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651836367000"
+    }
+  },
+  "productDes": "<p>Display:  disply</p>\r\n<p>OS:  os</p>\r\n<p>Main Camera:  mc</p>\r\n<p>Selfie Camera:  sc</p>\r\n<p>CPU:  cpu</p>\r\n<p>Memory: mm&nbsp;</p>\r\n<p>Card Slot:  cs</p>\r\n<p>SIM:  sim</p>\r\n<p>Battery: bt</p>\r\n",
+  "productSold": 0
+},{
+  "_id": {
+    "$oid": "627505cfedef1b5c6cf0c4ac"
+  },
+  "productImg": [
+    "http://localhost:4000/images/3727d82bba4f534c219817178285fb04"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "testttttt",
+  "productSale": 1,
+  "productPrice": 1,
+  "productFinalPrice": 0.99,
+  "productGroupCate": "Apple",
+  "productCate": "13 seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651836367000"
+    }
+  },
+  "productDes": "<p>Display:  disply</p>\r\n<p>OS:  os</p>\r\n<p>Main Camera:  mc</p>\r\n<p>Selfie Camera:  sc</p>\r\n<p>CPU:  cpu</p>\r\n<p>Memory: mm&nbsp;</p>\r\n<p>Card Slot:  cs</p>\r\n<p>SIM:  sim</p>\r\n<p>Battery: bt</p>\r\n",
+  "productSold": 0
+},{
+  "_id": {
+    "$oid": "627505cfedef1b5c6cf0c4b1"
+  },
+  "productImg": [
+    "http://localhost:4000/images/0a304560f3ad2f7f4b854897cf4e3d83"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "testttttt",
+  "productSale": 1,
+  "productPrice": 1,
+  "productFinalPrice": 0.99,
+  "productGroupCate": "Apple",
+  "productCate": "13 seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651836367000"
+    }
+  },
+  "productDes": "<p>Display:  disply</p>\r\n<p>OS:  os</p>\r\n<p>Main Camera:  mc</p>\r\n<p>Selfie Camera:  sc</p>\r\n<p>CPU:  cpu</p>\r\n<p>Memory: mm&nbsp;</p>\r\n<p>Card Slot:  cs</p>\r\n<p>SIM:  sim</p>\r\n<p>Battery: bt</p>\r\n",
+  "productSold": 0
+},{
+  "_id": {
+    "$oid": "627505c6edef1b5c6cf0c4a5"
+  },
+  "productImg": [
+    "http://localhost:4000/images/ca92b27a35f164b21c0853392f038687"
+  ],
+  "productSize": [],
+  "productVote": [],
+  "productName": "testttttt",
+  "productSale": 1,
+  "productPrice": 1,
+  "productFinalPrice": 0.99,
+  "productGroupCate": "Apple",
+  "productCate": "13 seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651836358000"
+    }
+  },
+  "productDes": "<p>Display:  disply</p>\r\n<p>OS:  os</p>\r\n<p>Main Camera:  mc</p>\r\n<p>Selfie Camera:  sc</p>\r\n<p>CPU:  cpu</p>\r\n<p>Memory: mm&nbsp;</p>\r\n<p>Card Slot:  cs</p>\r\n<p>SIM:  sim</p>\r\n<p>Battery: bt</p>\r\n",
+  "productSold": 0
+},{
+  "_id": {
+    "$oid": "62750f762b13fe322c589d95"
+  },
+  "productImg": [
+    "http://localhost:4000/images/80a23720020cbe8db32c12c8448f6855",
+    "http://localhost:4000/images/0a3e4abc5c077418edc0e160d1b43e61"
+  ],
+  "productSize": [],
+  "productVote": [
+    {
+      "ratingName": "pham pha",
+      "ratingDate": "Fri May 06 2022 19:08:34 GMT+0700 (Indochina Time)",
+      "ratingText": "test",
+      "ratingEmail": "phampha8a3@gmail.com",
+      "ratingStar": 4.5,
+      "ratingAvt": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163"
+    },
+    {
+      "ratingName": "pham pha",
+      "ratingDate": "Fri May 06 2022 23:27:48 GMT+0700 (Indochina Time)",
+      "ratingText": "nhu cac",
+      "ratingEmail": "phampha8a3@gmail.com",
+      "ratingStar": 4,
+      "ratingAvt": "http://localhost:4000/images/6ed9509adeceb8c8ea78a8148e248953"
+    }
+  ],
+  "productName": "testfinalll",
+  "productSale": 1,
+  "productPrice": 20000000,
+  "productFinalPrice": 19800000,
+  "productGroupCate": "SamSung",
+  "productCate": "S seri",
+  "productType": "Phone",
+  "productDate": {
+    "$date": {
+      "$numberLong": "1651838838000"
+    }
+  },
+  "productDes": "test",
+  "productSpec": "<p>Display:  dis</p>\r\n<p>OS:  os</p>\r\n<p>Main Camera:  mc</p>\r\n<p>Selfie Camera:  sc</p>\r\n<p>CPU:  cpu</p>\r\n<p>Memory:  mem</p>\r\n<p>Card Slot:  cs</p>\r\n<p>SIM:  sim</p>\r\n<p>Battery: bt</p>\r\n",
+  "productSold": 1
+}]

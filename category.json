@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "6274d7b6336d4514bc27c426"
+  },
+  "cateName": "S seri",
+  "groupCate": "SamSung"
+},{
+  "_id": {
+    "$oid": "6274db13edef1b5c6cf0c499"
+  },
+  "cateName": "13 seri",
+  "groupCate": "Apple"
+},{
+  "_id": {
+    "$oid": "6274e457edef1b5c6cf0c49d"
+  },
+  "cateName": "Z seri",
+  "groupCate": "SamSung"
+},{
+  "_id": {
+    "$oid": "6274e46eedef1b5c6cf0c49e"
+  },
+  "cateName": "A seri",
+  "groupCate": "SamSung"
+}]

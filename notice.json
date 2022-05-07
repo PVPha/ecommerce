@@ -1,0 +1,67 @@
+[{
+  "_id": {
+    "$oid": "6272b684fea2591f1895a29e"
+  },
+  "noticeContent": "You have new message from pham pha",
+  "isRead": "true",
+  "noticeTime": {
+    "$date": {
+      "$numberLong": "1651684996754"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6272d3ad3c943760f0f47e73"
+  },
+  "noticeContent": "You have new order from pham pha",
+  "isRead": "true",
+  "noticeTime": {
+    "$date": {
+      "$numberLong": "1651692461876"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6272d4d43c943760f0f47e76"
+  },
+  "noticeContent": "You have new order from minh huong",
+  "isRead": "true",
+  "noticeTime": {
+    "$date": {
+      "$numberLong": "1651692756930"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6272f7346d2a8b38b492669d"
+  },
+  "noticeContent": "You have new order from final test",
+  "isRead": "true",
+  "noticeTime": {
+    "$date": {
+      "$numberLong": "1651701556190"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6275065fedef1b5c6cf0c4b9"
+  },
+  "noticeContent": "You have new order from pham pha",
+  "isRead": "false",
+  "noticeTime": {
+    "$date": {
+      "$numberLong": "1651836511659"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6275535769269b362c7267bb"
+  },
+  "noticeContent": "You have new order from pham pha",
+  "isRead": "false",
+  "noticeTime": {
+    "$date": {
+      "$numberLong": "1651856215228"
+    }
+  }
+}]

@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "62753e9769269b362c7267b6"
+  },
+  "orderList": [
+    {
+      "id": "62750f762b13fe322c589d95",
+      "amount": 2
+    }
+  ],
+  "orderId": 1,
+  "orderName": "pham pha",
+  "orderAvatar": "http://localhost:4000/images/6ed9509adeceb8c8ea78a8148e248953",
+  "orderEmail": "phampha8a3@gmail.com",
+  "orderPhone": "123456789",
+  "orderAddress": "dia chi",
+  "orderTinh": "Tỉnh Hoà Bình",
+  "orderHuyen": "null",
+  "orderTotal": 39600000,
+  "orderPaymentMethod": "cash on delivery",
+  "orderStatus": "completed",
+  "orderDate": "2022-05-06T16:16:38.464Z"
+},{
+  "_id": {
+    "$oid": "6275535769269b362c7267ba"
+  },
+  "orderList": [
+    {
+      "id": "6272b0e2fea2591f1895a29c",
+      "amount": 1
+    }
+  ],
+  "orderId": 2,
+  "orderAvatar": "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163",
+  "orderName": "pham pha",
+  "orderEmail": "pvpdaoclone1@gmail.com",
+  "orderPhone": "1234567890",
+  "orderAddress": "nguyen chi thanh phuong 9 quan 5",
+  "orderTinh": "Tỉnh Quảng Ninh",
+  "orderHuyen": "null",
+  "orderTotal": 20000000,
+  "orderPaymentMethod": "cash on delivery",
+  "orderStatus": "delivery",
+  "orderDate": "2022-05-06T17:00:30.245Z"
+}]

@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "6272cf453c943760f0f47e6f"
+  },
+  "newImg": "http://localhost:4000/images/e3cd1cb77d3da980cb4a0190944760e4",
+  "newTime": "Thu May 05 2022 02:08:53 GMT+0700 (Indochina Time)",
+  "newCate": "tesst",
+  "newTitle": "test bai ciet 2",
+  "newContent": "<p>tes la n2</p>\r\n",
+  "newView": 3
+},{
+  "_id": {
+    "$oid": "6272d2d43c943760f0f47e70"
+  },
+  "newImg": "http://localhost:4000/images/c0c46a7f4ef4f8a749e9c8a131a9cefb",
+  "newTime": "Thu May 05 2022 02:24:04 GMT+0700 (Indochina Time)",
+  "newCate": "tesst",
+  "newTitle": "test new",
+  "newContent": "<p>test noi dung</p>\r\n",
+  "newView": 0
+}]
