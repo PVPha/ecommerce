@@ -76,10 +76,18 @@ export default function DashboardProductEdit(props) {
   const handleOnChange = (event) => {
     setInputValue({ ...inputValue, [event.target.name]: event.target.value });
   };
-
+  let specifications = "";
   useEffect(() => {
     if (product) {
-      setNewsContent(product.productSpec);
+      if (product.productSpec !== undefined) {
+        for (let i in Object.keys(product.productSpec)) {
+          specifications += `<p>${Object.keys(product.productSpec)[i]}: ${
+            Object.values(product.productSpec)[i]
+          }</p>\n`;
+        }
+      }
+
+      setNewsContent(specifications);
       setProductName(product.productName);
       setProductImg(product.productImg);
       setProductSale(product.productSale);
@@ -120,7 +128,15 @@ export default function DashboardProductEdit(props) {
     };
 
     const formData = new FormData();
-
+    const objSpec = {};
+    newsContent
+      .replaceAll("<p>", " ")
+      .replaceAll("\n", "")
+      .split("</p>")
+      .forEach((item) => {
+        objSpec[item.slice(0, item.indexOf(":")).replaceAll(" ", "")] =
+          item.slice(item.indexOf(":") + 1);
+      });
     const imageArr = Array.from(file);
     imageArr.forEach((image) => {
       formData.append("productImg", image);
@@ -132,7 +148,7 @@ export default function DashboardProductEdit(props) {
     formData.append("productCate", productCate);
     formData.append("productGroupCate", productGroupCate);
     // formData.append("productSize", productSize);
-    formData.append("productSpec", newsContent);
+    formData.append("productSpec", JSON.stringify(objSpec));
     formData.append("productDes", productDes);
     formData.append("productType", "Phone");
     formData.append("productDate", new Date());

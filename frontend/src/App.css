@@ -2381,7 +2381,7 @@
 }
 .product-big {
   transition: transform .6s;
-  height: 100%;
+  height: 80%;
 }
 .product-big-item img {
   height: 100%;

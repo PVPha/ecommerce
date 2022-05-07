@@ -17,7 +17,7 @@ var productSchema = new mongoose.Schema(
     productType: String,
     productSold: Number,
     productDes: String,
-    productSpec: String,
+    productSpec: Object,
     productVote: Array,
   },
   {

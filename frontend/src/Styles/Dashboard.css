@@ -906,6 +906,23 @@ display: none !important;
     text-align: left;
     border: none;
 }
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.spec-table tr {
+    border-top: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+}
+.spec-table tr th{
+    text-align: start;
+}
+.spec-table tr th, .spec-table tr td {
+    padding-left: 10px;
+}
+
+
 .table-title:first-child {
     width: 150px;
 }

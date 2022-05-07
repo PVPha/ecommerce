@@ -62,7 +62,7 @@ module.exports.postProduct = async function (req, res) {
     productDate: req.body.productDate,
     productImg: imgArr,
     productDes: req.body.productDes,
-    productSpec: req.body.productSpec,
+    productSpec: JSON.parse(req.body.productSpec),
     productSold: 0,
   };
 
@@ -123,6 +123,7 @@ module.exports.updateProduct = async function (req, res) {
       productDate: product.productDate,
       productImg: deletedProduct,
       productDes: product.productDes,
+
       productSold: 0,
     };
     await Product.findByIdAndUpdate(id, deletedData);
@@ -150,6 +151,7 @@ module.exports.updateProduct = async function (req, res) {
     productGroupCate: req.body.productGroupCate,
     productType: req.body.productType,
     productDes: req.body.productDes,
+    productSpec: JSON.parse(req.body.productSpec),
   };
 
   Product.findByIdAndUpdate({ _id: id }, { $push: img }, function (error) {});

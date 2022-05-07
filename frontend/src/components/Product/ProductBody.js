@@ -163,6 +163,15 @@ export default function ProductBody(props) {
     }, 500);
   };
 
+  var bodySpec = "";
+  if (typeof product.productSpec !== "undefined") {
+    for (let i in Object.keys(product.productSpec)) {
+      bodySpec += `<tr class="border border-dark"><th>${
+        Object.keys(product.productSpec)[i]
+      }</th><td>${Object.values(product.productSpec)[i]}</td></tr>`;
+    }
+  }
+
   return (
     <div className="ProductBody">
       <div className="product-breadcrumb flex">
@@ -279,10 +288,11 @@ export default function ProductBody(props) {
         </div>
         <div className="product-info-detail">
           <div className="product-info-title">{product.productName}</div>
-          <div
-            className="product-info-des flex flex-col"
-            dangerouslySetInnerHTML={{ __html: product.productSpec }}
-          ></div>
+          <div className="product-info-des flex flex-col">
+            <table className="spec-table">
+              <tbody dangerouslySetInnerHTML={{ __html: bodySpec }}></tbody>
+            </table>
+          </div>
           <div className="product-info-vote" onClick={props.scrollOnLick}>
             <div style={{ height: "40px" }}>
               {Object.keys(ratingStar).length !== 0 && (

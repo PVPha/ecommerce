@@ -56,7 +56,15 @@ export default function DashboardProductCreate(props) {
     const formData = new FormData();
 
     const imageArr = Array.from(file);
-
+    const objSpec = {};
+    newsContent
+      .replaceAll("<p>", " ")
+      .replaceAll("\n", "")
+      .split("</p>")
+      .forEach((item) => {
+        objSpec[item.slice(0, item.indexOf(":")).replaceAll(" ", "")] =
+          item.slice(item.indexOf(":") + 1);
+      });
     imageArr.forEach((image) => {
       formData.append("productImg", image);
     });
@@ -67,10 +75,10 @@ export default function DashboardProductCreate(props) {
     formData.append("productCate", cateValue);
     formData.append("productGroupCate", productGroupCate);
     formData.append("productDes", inputValue.des);
-    formData.append("productSpec", newsContent);
+    formData.append("productSpec", JSON.stringify(objSpec));
     formData.append("productType", "Phone");
     formData.append("productDate", new Date());
-    console.log(formData.get("productImg"));
+
     axios
       .post("http://localhost:4000/products", formData, config)
       .then((res) => {
