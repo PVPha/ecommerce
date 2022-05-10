@@ -325,11 +325,11 @@ export default function DashboardMain() {
           color="orange"
           topRecentVote={topRecentVote}
         />
-        <DashboardTodoList // recent orders
+        {/* <DashboardTodoList // recent orders
           icon={faTasks}
           title="Todo list"
           color="green"
-        />
+        /> */}
       </div>
       <div className="row flex">
         <DashboardChartLine icon={faTasks} order={order} color="pink" />

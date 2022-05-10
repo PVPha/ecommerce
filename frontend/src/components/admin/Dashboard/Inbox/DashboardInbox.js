@@ -236,10 +236,14 @@ export default function DashboardInbox(props) {
               <div className="boxchat-box-info">
                 <div className="boxchat-box-avt flex-center">
                   {sortDateChat[Number(roomIndex)].userInfo && (
-                    <img
-                      src={sortDateChat[Number(roomIndex)].userInfo.userAvt}
-                      alt=""
-                    ></img>
+                    // <img
+                    //   src={
+                    //     "data:image/png;base64," +
+                    //     sortDateChat[Number(roomIndex)].userInfo.userAvt
+                    //   }
+                    //   alt=""
+                    // ></img>
+                    <img></img>
                   )}
                   {!sortDateChat[Number(roomIndex)].userInfo && (
                     <img
@@ -382,10 +386,14 @@ export default function DashboardInbox(props) {
             <div className="boxchat-box-info">
               <div className="boxchat-box-avt flex-center">
                 {sortDateChat[Number(roomIndex)].userInfo && (
-                  <img
-                    src={sortDateChat[Number(roomIndex)].userInfo.userAvt}
-                    alt=""
-                  ></img>
+                  // <img
+                  //   src={
+                  //     "data:image/png;base64," +
+                  //     sortDateChat[Number(roomIndex)].userInfo.userAvt
+                  //   }
+                  //   alt=""
+                  // ></img>
+                  <img></img>
                 )}
                 {!sortDateChat[Number(roomIndex)].userInfo && (
                   <img

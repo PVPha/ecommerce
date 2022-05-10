@@ -39,7 +39,10 @@ export default function DashboardTopFive(props) {
                       className="top-user flex"
                     >
                       <img
-                        src={item.orderAvatar || item.productImg[0]}
+                        src={
+                          item.orderAvatar ||
+                          "data:image/png;base64," + item.productImg[0]
+                        }
                         className="top-user-avt"
                         alt=""
                       ></img>

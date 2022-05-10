@@ -158,7 +158,7 @@ function CheckoutBody(props) {
                     <div key={index} className="billing-detail-item">
                       <div style={{ width: "300px" }}>
                         <img
-                          src={item.productImg[0]}
+                          src={"data:image/png;base64," + item.productImg[0]}
                           alt=""
                           width="60px"
                           height="60px"
@@ -408,7 +408,7 @@ function CheckoutBody(props) {
                 return (
                   <div key={index} className="billing-detail-item">
                     <img
-                      src={item.productImg[0]}
+                      src={"data:image/png;base64," + item.productImg[0]}
                       alt=""
                       width="60px"
                       height="60px"

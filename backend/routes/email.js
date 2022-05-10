@@ -10,5 +10,5 @@ router.get("/:id", controller.info);
 router.post("/", controller.postEmail);
 router.post("/update/:id", controller.updateEmail);
 router.post("/delete/:id", controller.deleteSubscriber);
-
+router.post("/testsupport/", controller.testBody);
 module.exports = router;

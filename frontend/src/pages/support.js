@@ -8,7 +8,7 @@ import bg from "../assets/contact.jpg";
 import ContactBody from "../components/Contact/ContactBody.js";
 import GetInTouch from "../components/Contact/GetInTouch";
 import DashboardEditor from "../components/admin/Dashboard/News/DashboardEditor";
-
+import axios from "axios";
 function Support() {
   const [newsContent, setNewsContent] = useState("");
   const [inputValue, setInputValue] = useState([]);
@@ -17,27 +17,18 @@ function Support() {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    const config = {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    };
 
-    console.log(inputValue);
     const formData = new FormData();
-
-    // const imageArr = Array.from(file);
-    // imageArr.forEach((image) => {
-    //   formData.append("newImg", image);
-    // });
-    // formData.append("newTime", new Date());
-    // formData.append("newCate", cateValue);
-    // formData.append("newTitle", inputValue.title);
-    // formData.append("newContent", newsContent);
-    // axios.post("http://localhost:4000/news", formData, config).then(() => {
-    //   props.setCloseCreateFunc(false);
-    //   props.setToastFunc(true);
-    // });
+    axios
+      .post("http://localhost:4000/support", {
+        name: inputValue.name,
+        email: inputValue.email,
+        subject: inputValue.subject,
+        content: newsContent,
+      })
+      .then((res) => {
+        window.location.href = "/";
+      });
   };
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -1,4 +1,5 @@
 var News = require("../models/news.model.js");
+var fs = require("file-system");
 
 module.exports.index = async function (req, res) {
   var news = await News.find();
@@ -21,12 +22,16 @@ module.exports.cate = function (req, res) {
 module.exports.postNews = async function (req, res) {
   const imgArr = [];
   req.files.map((item) => {
-    imgArr.push(
-      `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
-    );
+    // imgArr.push(
+    //   `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
+    // );
+    var img = fs.readFileSync(item.path);
+    var encode_image = img.toString("base64");
+    var finalImg = new Buffer.from(encode_image, "base64");
+    imgArr.push(finalImg);
   });
   const data = {
-    newImg: imgArr[0],
+    newImg: imgArr,
     newTime: req.body.newTime,
     newCate: req.body.newCate,
     newTitle: req.body.newTitle,
@@ -52,7 +57,7 @@ module.exports.updateNews = async function (req, res) {
   } else {
     if (req.body.deleteImgId) {
       const deletedData = {
-        newImg: "",
+        newImg: [],
       };
       await News.findByIdAndUpdate(id, deletedData);
     }
@@ -71,16 +76,22 @@ module.exports.updateNews = async function (req, res) {
 
     const imgArr = [];
     if (req.files) {
-      req.files.map((item) => {
-        imgArr.push(
-          `http://localhost:4000/${item.path.split("/").slice(1).join("/")}`
-        );
-      });
+      if (req.files.length > 0) {
+        req.files.map((item) => {
+          // imgArr.push(
+          //   `http://localhost:4000/${item.path.split("/").slice(1).join("/")}`
+          // );
+          var img = fs.readFileSync(item.path);
+          var encode_image = img.toString("base64");
+          var finalImg = new Buffer.from(encode_image, "base64");
+          imgArr.push(finalImg);
+        });
+        const img = {
+          newImg: imgArr,
+        };
+        News.findByIdAndUpdate({ _id: id }, { $set: img }, function (error) {});
+      }
     }
-    const img = {
-      newImg: imgArr[0],
-    };
-    News.findByIdAndUpdate({ _id: id }, { $set: img }, function (error) {});
   }
   res.status(200).send("ok");
 };

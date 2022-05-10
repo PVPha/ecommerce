@@ -17,7 +17,7 @@ function AccountInfo(props) {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [userPhone, setUserPhone] = useState("");
-  const [userAvt, setUserAvt] = useState("");
+  // const [userAvt, setUserAvt] = useState("");
   const [file, setFile] = useState("");
   const [provinceId, setProvinceId] = useState("");
   const [userTinh, setUserTinh] = useState(null);
@@ -28,10 +28,11 @@ function AccountInfo(props) {
 
   useEffect(() => {
     if (userInfo) {
+      console.log(userInfo);
       setUserName(userInfo.userName);
       setUserEmail(userInfo.userEmail);
       setUserPhone(userInfo.userPhone);
-      setUserAvt(userInfo.userAvt);
+      // setUserAvt(userInfo.userAvt);
       setUserAddress(userInfo.userAddress);
       if (userInfo.userTinh !== "") {
         axios.get(`http://localhost:4000/vietnam`).then((res) => {
@@ -74,10 +75,10 @@ function AccountInfo(props) {
       },
     };
     const formData = new FormData();
-    const imageArr = Array.from(file);
-    imageArr.forEach((image) => {
-      formData.append("userAvt", image);
-    });
+    // const imageArr = Array.from(file);
+    // imageArr.forEach((image) => {
+    //   formData.append("userAvt", image);
+    // });
     formData.append("userName", userName);
     formData.append("userEmail", userEmail);
     formData.append("userPassword", userPassword);
@@ -119,14 +120,14 @@ function AccountInfo(props) {
         </div>
         <div className="accountinfo-menu">
           <div className="accountinfo-avt flex">
-            <img
+            {/* <img
               style={{ borderRadius: "50%" }}
               className="accountinfo-avt-img"
-              src={userInfo.userAvt}
+              src={"data:image/png;base64," + userInfo.userAvt}
               alt=""
               width="48px"
               height="48px"
-            ></img>
+            ></img> */}
             <div className="accountinfo-avt-name">{userInfo.userName}</div>
           </div>
           <div className="accountinfo-menu-list">
@@ -192,7 +193,7 @@ function AccountInfo(props) {
                     ></input>
                   </div>
                 </div>
-                <div className="create-box-row account-box-row flex">
+                {/* <div className="create-box-row account-box-row flex">
                   <div className="dashboard-left create-box-left flex">
                     Images{" "}
                   </div>
@@ -218,14 +219,14 @@ function AccountInfo(props) {
                     >
                       <img
                         className="accountinfo-editavt-img"
-                        src={userAvt}
+                        src={"data:image/png;base64," + userAvt}
                         alt=""
                         width="80px"
                         height="80px"
                       ></img>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <div className="create-box-row account-box-row flex">
                   <div className="dashboard-left create-box-left flex">
                     Email

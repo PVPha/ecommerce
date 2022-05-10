@@ -1,6 +1,8 @@
 var User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+var fs = require("file-system");
+const { type } = require("os");
 
 module.exports.index = async function (req, res) {
   var users = await User.find();
@@ -54,7 +56,8 @@ module.exports.register = async function (req, res) {
   } catch {}
 
   const data = {
-    userAvt: "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163",
+    userAvt:
+      "https://images.unsplash.com/photo-1574158622682-e40e69881006?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
     userName: req.body.userName,
     userTinh: "",
     userHuyen: "",
@@ -75,9 +78,13 @@ module.exports.updateUser = async function (req, res) {
   if (req.files.length > 0) {
     const imgArr = [];
     req.files.map((item) => {
-      imgArr.push(
-        `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
-      );
+      // imgArr.push(
+      //   `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
+      // );
+      var img = fs.readFileSync(item.path);
+      var encode_image = img.toString("base64");
+      var finalImg = new Buffer.from(encode_image, "base64");
+      imgArr.push(finalImg.toString("base64"));
     });
     const img = {
       userAvt: imgArr[0],

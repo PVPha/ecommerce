@@ -60,6 +60,7 @@ function OpenChatBtn(props) {
     });
     socket.on("admin-msg", function (data) {
       setChatList((chatList) => [...chatList, data]);
+      console.log(data);
       setTimeout(() => {
         messageRef.current.scrollIntoView({ behavior: "smooth" });
       }, 100);

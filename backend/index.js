@@ -24,6 +24,7 @@ var orderRoutes = require("./routes/order");
 var vietnamRoutes = require("./routes/vietnam");
 var todosRoutes = require("./routes/todos");
 var noticeRoutes = require("./routes/notice");
+var supportRoutes = require("./routes/support");
 
 mongoose
   .connect(
@@ -45,6 +46,7 @@ mongoose
   });
 // mongoose.set("useFindAndModify", false);
 var cors = require("cors");
+
 app.use(bodyParser.json());
 app.use(cookieParser("secret"));
 app.use(express.static("public"));
@@ -85,6 +87,7 @@ app.use("/order", orderRoutes);
 app.use("/vietnam", vietnamRoutes);
 app.use("/todos", todosRoutes);
 app.use("/notice", noticeRoutes);
+app.use("/support", supportRoutes);
 app.use(cors());
 app.options("*", cors());
 

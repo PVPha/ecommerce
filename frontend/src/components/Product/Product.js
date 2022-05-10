@@ -61,10 +61,14 @@ function Product(props) {
           )}
         </div>
         <div className="product-img-bg" onClick={redirect}>
-          <img className="" src={product.productImg[0]} alt=""></img>
+          <img
+            className=""
+            src={"data:image/png;base64," + product.productImg[0]}
+            alt=""
+          ></img>
           <img
             className={hover === false ? "img-defalt hide" : "img-defalt"}
-            src={product.productImg[1]}
+            src={"data:image/png;base64," + product.productImg[1]}
             alt=""
           ></img>
         </div>

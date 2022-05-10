@@ -26,6 +26,7 @@ export default function DashboardNewsCreate(props) {
       setNewsTitle(news.newTitle);
       setNewsImg([news.newImg]);
       setNewsCate(news.newCate);
+
       setNewsContent(news.newContent);
       axios.get(`http://localhost:4000/news`).then((res) => {
         const test = Object.values(
@@ -146,7 +147,17 @@ export default function DashboardNewsCreate(props) {
                   newsImg.map((item, index) => {
                     return (
                       <div key={index} className="create-box-img">
-                        <img key={index} src={item} alt=""></img>
+                        <img
+                          key={index}
+                          src={
+                            typeof item != "undefined"
+                              ? item.slice(0, 4) != "blob"
+                                ? "data:image/png;base64," + item
+                                : item
+                              : ""
+                          }
+                          alt=""
+                        ></img>
                         <div className="create-box-img-overlay">
                           <p id={index} onClick={deleteImg} className="icon">
                             X

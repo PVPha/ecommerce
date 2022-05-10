@@ -56,7 +56,14 @@ function ProductQuickView(props) {
     window.scrollTo(0, 0);
     props.history.push(`/products/${props.product._id}`);
   };
-
+  var bodySpec = "";
+  if (typeof product.productSpec !== "undefined") {
+    for (let i in Object.keys(product.productSpec)) {
+      bodySpec += `<tr class="border border-dark"><th>${
+        Object.keys(product.productSpec)[i]
+      }</th><td>${Object.values(product.productSpec)[i]}</td></tr>`;
+    }
+  }
   return (
     <div>
       <div
@@ -100,7 +107,12 @@ function ProductQuickView(props) {
               <Slider {...settings}>
                 {product.productImg.map((item, index) => {
                   return (
-                    <img key={index} src={item} alt="" className="view-img" />
+                    <img
+                      key={index}
+                      src={"data:image/png;base64," + item}
+                      alt=""
+                      className="view-img"
+                    />
                   );
                 })}
               </Slider>
@@ -120,8 +132,11 @@ function ProductQuickView(props) {
             >
               {product.productName}
             </div>
-            <div className="product-info-des" style={{ width: "80%" }}>
-              {product.productDes}
+            <div className="product-info-des" style={{ width: "30%" }}>
+              {/* {product.productDes} */}
+              <table className="spec-table">
+                <tbody dangerouslySetInnerHTML={{ __html: bodySpec }}></tbody>
+              </table>
             </div>
             <div
               className="product-info-vote"

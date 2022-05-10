@@ -305,7 +305,10 @@ export default function DashboardOrderCreate(props) {
                   productList.map((item, index) => {
                     return (
                       <div key={index} className="order-list-item">
-                        <img src={item.productImg[0]} alt=""></img>
+                        <img
+                          src={"data:image/png;base64," + item.productImg[0]}
+                          alt=""
+                        ></img>
                         <p style={{ width: "55%" }}>{item.productName}</p>
                         <div style={{ display: "flex", alignItems: "center" }}>
                           <p

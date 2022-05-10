@@ -1,8 +1,10 @@
 var Product = require("../models/product.model.js");
 var Email = require("../models/email.model");
 var mongoose = require("mongoose");
+var fs = require("file-system");
 
 var nodemailer = require("nodemailer");
+const { buffer } = require("stream/consumers");
 
 // Login with admin email
 var transporter = nodemailer.createTransport({
@@ -10,16 +12,8 @@ var transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    type: "OAuth2",
     user: "noreplytechcompany@gmail.com",
-    // pass: "0933997980",
-    clientId:
-      "793985566124-i7v2tb11i21rfsqel8an89596mahctaa.apps.googleusercontent.com",
-    clientSecret: "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",
-    refreshToken:
-      "1//04GVL0Pjcc-BwCgYIARAAGAQSNwF-L9Ir_mEmDdncq3SqhQzGaVuOqVN9rcqy7nPehoiLFNPX7-2Ja5ANUtqhpLL6W3xlokhNdOk",
-    accessToken:
-      "ya29.A0ARrdaM8OKkgrulRZxs__Q4JrrVUE1-t6LMmIBn8_UZD67Ld4z93O5Pmr8bUY6uo-EAgMollArzW3bBOQwwdh5Jfpvgo3vc_mxgqCsCsjY0V8uLJsPLPMiaq8s3cYL7i_HpCqNYlfgE6MvMibasoHqS2kDh0B",
+    pass: "0933997980",
   },
 });
 transporter.verify(function (error, success) {
@@ -45,10 +39,15 @@ module.exports.product = function (req, res) {
 module.exports.postProduct = async function (req, res) {
   const imgArr = [];
   req.files.map((item) => {
-    imgArr.push(
-      `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
-    );
+    // imgArr.push(
+    //   `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
+    // );
+    var img = fs.readFileSync(item.path);
+    var encode_image = img.toString("base64");
+    var finalImg = new Buffer.from(encode_image, "base64");
+    imgArr.push(finalImg);
   });
+
   const data = {
     productName: req.body.productName,
     productSale: req.body.productSale,
@@ -68,41 +67,41 @@ module.exports.postProduct = async function (req, res) {
 
   await Product.create(data);
 
-  var emailList = await Email.find();
+  // var emailList = await Email.find();
 
-  for (let i in emailList) {
-    Email.findOne({ _id: emailList[i]._id })
-      .updateOne({
-        $push: {
-          sendedEmail: {
-            emailId: new mongoose.mongo.ObjectId(),
-            isSeen: false,
-          },
-        },
-      })
-      .exec();
+  // for (let i in emailList) {
+  //   Email.findOne({ _id: emailList[i]._id })
+  //     .updateOne({
+  //       $push: {
+  //         sendedEmail: {
+  //           emailId: new mongoose.mongo.ObjectId(),
+  //           isSeen: false,
+  //         },
+  //       },
+  //     })
+  //     .exec();
 
-    var emailInfo = await Email.findById(emailList[i]._id);
+  //   var emailInfo = await Email.findById(emailList[i]._id);
 
-    var mailOptions = {
-      from: "18521118@gm.uit.edu.vn",
-      to: emailList[i].subscriberEmail,
-      subject: "Sản phẩm mới tại SOBER SHOP",
-      html:
-        "<p>Sản phẩm mới nè</p>" +
-        `<img src="http://localhost:4000/email/${emailList[i]._id}/${
-          emailInfo.sendedEmail[emailInfo.sendedEmail.length - 1].emailId
-        }" alt=""></img>`,
-    };
+  //   var mailOptions = {
+  //     from: "18521118@gm.uit.edu.vn",
+  //     to: emailList[i].subscriberEmail,
+  //     subject: "Sản phẩm mới tại SOBER SHOP",
+  //     html:
+  //       "<p>Sản phẩm mới nè</p>" +
+  //       `<img src="http://localhost:4000/email/${emailList[i]._id}/${
+  //         emailInfo.sendedEmail[emailInfo.sendedEmail.length - 1].emailId
+  //       }" alt=""></img>`,
+  //   };
 
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log("Email sent: " + info.response);
-      }
-    });
-  }
+  //   transporter.sendMail(mailOptions, function (error, info) {
+  //     if (error) {
+  //       console.log(error);
+  //     } else {
+  //       console.log("Email sent: " + info.response);
+  //     }
+  //   });
+  // }
 
   res.status(200).send("ok");
 };
@@ -113,7 +112,7 @@ module.exports.updateProduct = async function (req, res) {
   if (req.body.deleteImgId) {
     const product = await Product.findById(id);
     const deletedProduct = [...product.productImg];
-    deletedProduct.splice(0, 1);
+    deletedProduct.splice(req.body.deleteImgId, 1);
     const deletedData = {
       productName: product.productName,
       productSale: product.productSale,
@@ -123,44 +122,52 @@ module.exports.updateProduct = async function (req, res) {
       productDate: product.productDate,
       productImg: deletedProduct,
       productDes: product.productDes,
-
+      productSpec: product.productSpec,
       productSold: 0,
     };
-    await Product.findByIdAndUpdate(id, deletedData);
-  }
+    await Product.findByIdAndUpdate(id, deletedData, function (error) {
+      if (error) {
+        console.log(error);
+      }
+    });
+  } else {
+    const imgArr = [];
+    if (req.files) {
+      req.files.map((item) => {
+        // imgArr.push(
+        //   `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
+        // );
+        var img = fs.readFileSync(item.path);
+        var encode_image = img.toString("base64");
+        var finalImg = new Buffer.from(encode_image, "base64");
+        imgArr.push(finalImg);
+      });
+    }
+    const img = {
+      productImg: imgArr,
+    };
+    const data = {
+      productName: req.body.productName,
+      productSale: req.body.productSale,
+      productPrice: req.body.productPrice,
+      productFinalPrice:
+        req.body.productPrice -
+        req.body.productPrice * (req.body.productSale / 100),
+      productCate: req.body.productCate,
+      productGroupCate: req.body.productGroupCate,
+      productType: req.body.productType,
+      productDes: req.body.productDes,
+      productSpec: JSON.parse(req.body.productSpec),
+    };
 
-  const imgArr = [];
-  if (req.files) {
-    req.files.map((item) => {
-      imgArr.push(
-        `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
-      );
+    Product.findByIdAndUpdate({ _id: id }, { $push: img }, function (error) {});
+
+    Product.findByIdAndUpdate(id, data, function (error) {
+      if (error) {
+        console.log(error);
+      }
     });
   }
-  const img = {
-    productImg: imgArr,
-  };
-  const data = {
-    productName: req.body.productName,
-    productSale: req.body.productSale,
-    productPrice: req.body.productPrice,
-    productFinalPrice:
-      req.body.productPrice -
-      req.body.productPrice * (req.body.productSale / 100),
-    productCate: req.body.productCate,
-    productGroupCate: req.body.productGroupCate,
-    productType: req.body.productType,
-    productDes: req.body.productDes,
-    productSpec: JSON.parse(req.body.productSpec),
-  };
-
-  Product.findByIdAndUpdate({ _id: id }, { $push: img }, function (error) {});
-
-  Product.findByIdAndUpdate(id, data, function (error) {
-    if (error) {
-      console.log(error);
-    }
-  });
   res.status(200).send("ok");
 };
 

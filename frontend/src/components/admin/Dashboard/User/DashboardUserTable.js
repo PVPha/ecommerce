@@ -195,14 +195,14 @@ export default function DashboardUserTable(props) {
                 return (
                   <tr key={index}>
                     <td style={{ display: "flex" }}>
-                      <img
+                      {/* <img
                         className="table-mobile-useravt"
                         src={item.userAvt}
                         width="70px"
                         height="80px"
                         style={{ padding: "5px 0", borderRadius: "50%" }}
                         alt=""
-                      />
+                      /> */}
                     </td>
                     <td>
                       <p>{item.userName}</p>

@@ -24,6 +24,9 @@ import DashboardCollection from "./Collection/DashboardCollection";
 import DashboardSubscriberCreate from "./Subscriber/DashboardSubscriberCreate";
 import DashboardSubscriberEdit from "./Subscriber/DashboardSubscriberEdit";
 import DashboardSubscriber from "./Subscriber/DashboardSubscriber";
+import DashboardSupportCreate from "./Support/DashboardSupportCreate";
+import DashboardSupportEdit from "./Support/DashboardSupportEdit";
+import DashboardSupport from "./Support/DashboardSupport";
 
 export default function DashboardBody(props) {
   const tabId = props.tabId;
@@ -35,6 +38,7 @@ export default function DashboardBody(props) {
   const [order, setOrder] = useState({});
   const [collection, setCollection] = useState({});
   const [email, setEmail] = useState([]);
+  const [support, setSupport] = useState([]);
 
   const setToastFunc = (bool) => {
     setIsChange(true);
@@ -72,6 +76,11 @@ export default function DashboardBody(props) {
     Axios.get(`http://localhost:4000/email/${props.productId}`).then((res) => {
       setEmail(res.data);
     });
+    Axios.get(`http://localhost:4000/support/${props.productId}`).then(
+      (res) => {
+        setSupport(res.data);
+      }
+    );
   }, [props.productId, props.openEdit]);
   const openMenuMobile = props.openMenuMobile;
 
@@ -141,16 +150,16 @@ export default function DashboardBody(props) {
       )}
 
       {props.openCreate && tabId === "7" && (
-        <DashboardCollectionCreate
+        <DashboardSupportCreate
           setCloseCreateFunc={props.setCloseCreateFunc}
           setToastFunc={setToastFunc}
         />
       )}
       {props.openEdit && tabId === "7" && (
-        <DashboardCollectionEdit
+        <DashboardSupportEdit
           setCloseEditFunc={props.setCloseEditFunc}
           setToastFunc={setToastFunc}
-          collection={collection}
+          support={support}
         />
       )}
 
@@ -167,8 +176,8 @@ export default function DashboardBody(props) {
           email={email}
         />
       )}
+      {/* props.menuItems[tabId - 1].name */}
       <DashboardHeader
-        itemName={props.menuItems[tabId - 1].name}
         setOpenMenuOnClick={props.setOpenMenuOnClick}
         openMenu={props.openMenu}
         orderNotice={props.orderNotice}
@@ -214,7 +223,7 @@ export default function DashboardBody(props) {
         />
       )}
       {tabId === "7" && (
-        <DashboardCollection
+        <DashboardSupport
           setOpenCreateFunc={props.setOpenCreateFunc}
           setOpenEditFunc={props.setOpenEditFunc}
           toast={toast}

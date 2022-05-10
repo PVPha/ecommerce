@@ -76,7 +76,7 @@ export default function NewsContent(props) {
         </div>
       </div>
       <div className="news-title newscontent-title">
-        <img src={news.newImg} width="100%" alt="" />
+        <img src={"data:image/png;base64," + news.newImg} width="100%" alt="" />
       </div>
       <div
         className="newscontent-content flex-center"

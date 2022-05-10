@@ -88,7 +88,11 @@ function NewsBodyWidget(props) {
             <div key={index} className="widget-post">
               <div
                 className="widget-post-img"
-                style={{ backgroundImage: `url(${item.newImg})` }}
+                style={{
+                  backgroundImage: `url(${
+                    "data:image/png;base64," + item.newImg
+                  })`,
+                }}
                 onClick={() => {
                   window.scrollTo(0, 0);
                   props.history.push(`/news/${item._id}`);

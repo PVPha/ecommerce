@@ -184,17 +184,15 @@ export default function DashboardProductEdit(props) {
     setProductGroupCate(inputValue.groupCate);
     setProductGroupCateList((productGroupCateList) => [
       ...productGroupCateList,
-      { productGroupCate: inputValue.groupCate },
+      { groupCate: inputValue.groupCate },
     ]);
     groupCateInput.current.value = "";
   };
-
   const deleteImg = (event) => {
     const id = event.target.id;
     const virutalFile = [...file];
     virutalFile.splice(id, 1);
     setFile(virutalFile);
-
     const items = [...productImg];
     items.splice(id, 1);
     setProductImg(items);
@@ -251,6 +249,7 @@ export default function DashboardProductEdit(props) {
                     }
                     const fileArr = Array.prototype.slice.call(files);
                     fileArr.forEach((item) => {
+                      console.log(file);
                       setFile((file) => [...file, item]);
                     });
                   }}
@@ -268,7 +267,15 @@ export default function DashboardProductEdit(props) {
                     productImg.map((item, index) => {
                       return (
                         <div className="create-box-img">
-                          <img key={index} src={item} alt=""></img>
+                          <img
+                            key={index}
+                            src={
+                              item.slice(0, 4) != "blob"
+                                ? "data:image/png;base64," + item
+                                : item
+                            }
+                            alt=""
+                          ></img>
                           <div className="create-box-img-overlay">
                             <p id={index} onClick={deleteImg} className="icon">
                               X
@@ -337,6 +344,7 @@ export default function DashboardProductEdit(props) {
                   }}
                   value={productGroupCate}
                 >
+                  <option></option>
                   {productGroupCateList.length > 0 &&
                     productGroupCateList.map((item, index) => {
                       return <option key={index}>{item.groupCate}</option>;

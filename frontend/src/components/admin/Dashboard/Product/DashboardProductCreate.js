@@ -82,7 +82,7 @@ export default function DashboardProductCreate(props) {
     axios
       .post("http://localhost:4000/products", formData, config)
       .then((res) => {
-        //console.log(res);
+        // console.log(res);
         props.setCloseCreateFunc(false);
         props.setToastFunc(true);
       });

@@ -218,6 +218,7 @@ export default function DashboardProductTable(props) {
       }
     }
   };
+
   return (
     <div className="topfive flex-col" style={{ width: "100%" }}>
       <div className={`headerbox flex-center ${props.color}`}>
@@ -291,7 +292,11 @@ export default function DashboardProductTable(props) {
                       style={{ display: "flex" }}
                     >
                       <img
-                        src={item.productImg[0]}
+                        src={
+                          typeof item.productImg[0] !== "undefined"
+                            ? "data:image/png;base64," + item.productImg[0]
+                            : item.productImg[0]
+                        }
                         width="70px"
                         height="80px"
                         style={{ padding: "5px 0" }}

@@ -211,7 +211,7 @@ export default function ProductBody(props) {
                     }
                   >
                     <img
-                      src={item}
+                      src={"data:image/png;base64," + item}
                       onClick={() => {
                         setImgIndex(index);
                       }}
@@ -248,7 +248,7 @@ export default function ProductBody(props) {
                     className="product-big flex"
                     style={{
                       transform: `translateX(-${width * imgIndex}px`,
-                      backgroundImage: `url(${item})`,
+                      backgroundImage: `url(data:image/png;base64,${item})`,
                       backgroundPosition: `${zoom}`,
                     }}
                   >
@@ -257,7 +257,7 @@ export default function ProductBody(props) {
                         id={index}
                         className="nodrag"
                         style={{ width: `${width}px` }}
-                        src={item}
+                        src={"data:image/png;base64," + item}
                         alt=""
                       ></img>
                     </div>

@@ -9,16 +9,8 @@ var transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    type: "OAuth2",
     user: "noreplytechcompany@gmail.com",
-    // pass: "0933997980",
-    clientId:
-      "793985566124-i7v2tb11i21rfsqel8an89596mahctaa.apps.googleusercontent.com",
-    clientSecret: "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",
-    refreshToken:
-      "1//04GVL0Pjcc-BwCgYIARAAGAQSNwF-L9Ir_mEmDdncq3SqhQzGaVuOqVN9rcqy7nPehoiLFNPX7-2Ja5ANUtqhpLL6W3xlokhNdOk",
-    accessToken:
-      "ya29.A0ARrdaM8OKkgrulRZxs__Q4JrrVUE1-t6LMmIBn8_UZD67Ld4z93O5Pmr8bUY6uo-EAgMollArzW3bBOQwwdh5Jfpvgo3vc_mxgqCsCsjY0V8uLJsPLPMiaq8s3cYL7i_HpCqNYlfgE6MvMibasoHqS2kDh0B",
+    pass: "0933997980",
   },
 });
 
@@ -105,4 +97,8 @@ module.exports.postEmail = async function (req, res) {
 module.exports.deleteSubscriber = async function (req, res) {
   await Email.findByIdAndRemove({ _id: req.body.id });
   res.status(200).send("ok");
+};
+
+module.exports.testBody = async function (req, res) {
+  console.log(req.body);
 };
