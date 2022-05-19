@@ -14,6 +14,7 @@ function Dropdown(props) {
     window.scrollTo(0, 0);
     props.history.push(`/${event.target.id}`);
     props.handleLeaveHover();
+    window.location.reload();
   };
 
   const type = props.label.toLowerCase();
