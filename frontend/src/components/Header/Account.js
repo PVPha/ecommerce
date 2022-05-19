@@ -26,7 +26,7 @@ function Account(props) {
     event.preventDefault();
     if (tabID === 0) {
       axios
-        .post("http://localhost:4000/users/login", {
+        .post("http://be-ecommerce-year4.herokuapp.com/users/login", {
           loginEmail: user.loginEmail,
           loginPassword: user.loginPassword,
         })
@@ -44,7 +44,7 @@ function Account(props) {
         });
     } else {
       axios
-        .post("http://localhost:4000/users/register", {
+        .post("http://be-ecommerce-year4.herokuapp.com/users/register", {
           userName: user.registerName,
           userEmail: user.registerEmail,
           userPassword: user.registerPassword,
@@ -65,9 +65,14 @@ function Account(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/users/${localStorage.getItem("user-id")}`, {
-        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-      })
+      .get(
+        `http://be-ecommerce-year4.herokuapp.com/users/${localStorage.getItem(
+          "user-id"
+        )}`,
+        {
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      )
       .then((res) => {
         setUserInfoFunc(res.data.user);
         setLogin(true);

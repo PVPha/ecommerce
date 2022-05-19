@@ -12,10 +12,12 @@ export default function DashboardUserTable(props) {
   const [constUser, setConstUser] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/users/list`).then((res) => {
-      setUser(res.data);
-      setConstUser(res.data);
-    });
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/users/list`)
+      .then((res) => {
+        setUser(res.data);
+        setConstUser(res.data);
+      });
   }, [props.isChange]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -96,9 +98,12 @@ export default function DashboardUserTable(props) {
   }
 
   const deleteOnClick = (event) => {
-    axios.post(`http://localhost:4000/users/delete/:${event.target.id}`, {
-      id: event.target.id,
-    });
+    axios.post(
+      `http://be-ecommerce-year4.herokuapp.com/users/delete/:${event.target.id}`,
+      {
+        id: event.target.id,
+      }
+    );
     setUser(
       user.filter((item) => {
         return item._id !== event.target.id;

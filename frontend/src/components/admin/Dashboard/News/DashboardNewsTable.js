@@ -13,7 +13,7 @@ export default function DashboardNewsTable(props) {
   const [constNews, setConstNews] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/news`).then((res) => {
+    axios.get(`http://be-ecommerce-year4.herokuapp.com/news`).then((res) => {
       setNews(res.data);
       setConstNews(res.data);
     });
@@ -97,9 +97,12 @@ export default function DashboardNewsTable(props) {
   }
 
   const deleteOnClick = (event) => {
-    axios.post(`http://localhost:4000/news/delete/:${event.target.id}`, {
-      productId: event.target.id,
-    });
+    axios.post(
+      `http://be-ecommerce-year4.herokuapp.com/news/delete/:${event.target.id}`,
+      {
+        productId: event.target.id,
+      }
+    );
     setNews(
       news.filter((item) => {
         return item._id !== event.target.id;

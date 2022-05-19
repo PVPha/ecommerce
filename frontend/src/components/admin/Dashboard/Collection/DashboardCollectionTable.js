@@ -12,10 +12,12 @@ export default function DashboardCollectionTable(props) {
   const [constCollection, setConstCollection] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/collection`).then((res) => {
-      setCollection(res.data);
-      setConstCollection(res.data);
-    });
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/collection`)
+      .then((res) => {
+        setCollection(res.data);
+        setConstCollection(res.data);
+      });
   }, [props.isChange]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -96,9 +98,12 @@ export default function DashboardCollectionTable(props) {
   }
 
   const deleteOnClick = (event) => {
-    axios.post(`http://localhost:4000/collection/delete/:${event.target.id}`, {
-      id: event.target.id,
-    });
+    axios.post(
+      `http://be-ecommerce-year4.herokuapp.com/collection/delete/:${event.target.id}`,
+      {
+        id: event.target.id,
+      }
+    );
     setCollection(
       collection.filter((item) => {
         return item._id !== event.target.id;

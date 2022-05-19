@@ -25,7 +25,7 @@ function NewsBody(props) {
 
   useEffect(() => {
     if (searchNews) {
-      axios.get(`http://localhost:4000/news`).then((res) => {
+      axios.get(`http://be-ecommerce-year4.herokuapp.com/news`).then((res) => {
         const search = [];
         for (let i in res.data) {
           if (res.data[i].newTitle.toLowerCase().includes(searchNews)) {
@@ -41,12 +41,16 @@ function NewsBody(props) {
       });
     } else {
       if (props.history.location.pathname === "/news") {
-        axios.get(`http://localhost:4000/news`).then((res) => {
-          setNews(res.data);
-        });
+        axios
+          .get(`http://be-ecommerce-year4.herokuapp.com/news`)
+          .then((res) => {
+            setNews(res.data);
+          });
       } else {
         axios
-          .get(`http://localhost:4000/news/category/${props.match.params.cate}`)
+          .get(
+            `http://be-ecommerce-year4.herokuapp.com/news/category/${props.match.params.cate}`
+          )
           .then((res) => {
             setNews(res.data);
           });

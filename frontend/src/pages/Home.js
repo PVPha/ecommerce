@@ -13,7 +13,7 @@ import axios from "axios";
 function Home() {
   const [collection, setCollection] = useState([]);
   // useEffect(() => {
-  //   axios.get(`http://localhost:4000/collection`).then((res) => {
+  //   axios.get(`http://be-ecommerce-year4.herokuapp.com/collection`).then((res) => {
   //     setCollection(res.data);
   //   });
   //   window.scrollTo(0, 0);

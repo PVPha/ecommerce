@@ -20,7 +20,7 @@ function Support() {
 
     const formData = new FormData();
     axios
-      .post("http://localhost:4000/support", {
+      .post("http://be-ecommerce-year4.herokuapp.com/support", {
         name: inputValue.name,
         email: inputValue.email,
         subject: inputValue.subject,

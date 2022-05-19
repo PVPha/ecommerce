@@ -36,7 +36,11 @@ export default function DashboardUserCreate(props) {
     formData.append("fromAdmin", true);
 
     axios
-      .post(`http://localhost:4000/users/update/${user._id}`, formData, config)
+      .post(
+        `http://be-ecommerce-year4.herokuapp.com/users/update/${user._id}`,
+        formData,
+        config
+      )
       .then(() => {
         props.setCloseEditFunc(false);
         props.setToastFunc(true);

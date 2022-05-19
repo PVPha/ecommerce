@@ -15,9 +15,11 @@ export default function DashboardCollectionEdit(props) {
   const collection = props.collection;
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/products`).then((res) => {
-      setProduct(res.data);
-    });
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+      .then((res) => {
+        setProduct(res.data);
+      });
     if (collection) {
       setCollectionBanner([collection.collectionBanner]);
       setCollectionName(collection.collectionName);
@@ -44,7 +46,7 @@ export default function DashboardCollectionEdit(props) {
     formData.append("collectionName", collectionName);
     axios
       .post(
-        `http://localhost:4000/collection/update/${collection._id}`,
+        `http://be-ecommerce-year4.herokuapp.com/collection/update/${collection._id}`,
         formData,
         config
       )

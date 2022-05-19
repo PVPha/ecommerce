@@ -92,48 +92,50 @@ function Header(props) {
       },
     ];
     setNavBar(navBar);
-    axios.get(`http://localhost:4000/products`).then((res) => {
-      let virtualNavBar = [...navBar];
-      // const accessoriesProduct = [];
-      const PhoneProduct = [];
-      for (let i in res.data) {
-        if (res.data[i].productType === "Phone") {
-          PhoneProduct.push(res.data[i].productGroupCate);
-        }
-      }
-
-      let groupCatePhone = PhoneProduct.filter(function (elem, index, self) {
-        return index === self.indexOf(elem);
-      });
-      const PhoneDropdownContent = [];
-      for (let i in groupCatePhone) {
-        let PhoneData = {};
-        let cateList = [];
-        for (let j in res.data) {
-          if (
-            res.data[j].productGroupCate === groupCatePhone[i] &&
-            res.data[j].productType === "Phone"
-          ) {
-            cateList.push(res.data[j].productCate);
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+      .then((res) => {
+        let virtualNavBar = [...navBar];
+        // const accessoriesProduct = [];
+        const PhoneProduct = [];
+        for (let i in res.data) {
+          if (res.data[i].productType.toLowerCase() === "phone") {
+            PhoneProduct.push(res.data[i].productGroupCate);
           }
         }
-        let cateList2 = cateList.filter(function (elem, index, self) {
+
+        let groupCatePhone = PhoneProduct.filter(function (elem, index, self) {
           return index === self.indexOf(elem);
         });
-        PhoneData = {
-          dropdownTitle: groupCatePhone[i],
-          dropdownList: cateList2,
-        };
-        PhoneDropdownContent.push(PhoneData);
-      }
-
-      for (let i in virtualNavBar) {
-        if (virtualNavBar[i].label === "Phone") {
-          virtualNavBar[i].dropdownContent = PhoneDropdownContent;
+        const PhoneDropdownContent = [];
+        for (let i in groupCatePhone) {
+          let PhoneData = {};
+          let cateList = [];
+          for (let j in res.data) {
+            if (
+              res.data[j].productGroupCate === groupCatePhone[i] &&
+              res.data[j].productType === "Phone"
+            ) {
+              cateList.push(res.data[j].productCate);
+            }
+          }
+          let cateList2 = cateList.filter(function (elem, index, self) {
+            return index === self.indexOf(elem);
+          });
+          PhoneData = {
+            dropdownTitle: groupCatePhone[i],
+            dropdownList: cateList2,
+          };
+          PhoneDropdownContent.push(PhoneData);
         }
-      }
-      setNavBar(virtualNavBar);
-    });
+
+        for (let i in virtualNavBar) {
+          if (virtualNavBar[i].label.toLowerCase() === "phone") {
+            virtualNavBar[i].dropdownContent = PhoneDropdownContent;
+          }
+        }
+        setNavBar(virtualNavBar);
+      });
     if (
       location === "/news" ||
       location === `/news/category/${props.match.params.cate}` ||

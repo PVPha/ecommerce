@@ -1,5 +1,5 @@
 import $ from "jquery";
-export const HOST = "http://localhost:4000";
+export const HOST = "http://be-ecommerce-year4.herokuapp.com";
 
 export const APIs = {
   QR: HOST + "/order/zalo/createorder?ordertype=createorder",

@@ -33,28 +33,32 @@ export default function DashboardMain() {
   const [incomeMonthPercent, setIncomeMonthPercent] = useState({});
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/products`).then((res) => {
-      setProducts(res.data);
-      let virtualProducts = [...res.data];
-      virtualProducts.sort((a, b) => b.productSold - a.productSold);
-      let virtualProducts2 = [];
-      for (let i in virtualProducts) {
-        let data = {
-          ...virtualProducts[i],
-          count: virtualProducts[i].productSold,
-        };
-        virtualProducts2.push(data);
-      }
-      setTopProductSales(virtualProducts2);
-    });
-    axios.get(`http://localhost:4000/users/list`).then((res) => {
-      setUser(res.data);
-    });
-    axios.get(`http://localhost:4000/email`).then((res) => {
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+      .then((res) => {
+        setProducts(res.data);
+        let virtualProducts = [...res.data];
+        virtualProducts.sort((a, b) => b.productSold - a.productSold);
+        let virtualProducts2 = [];
+        for (let i in virtualProducts) {
+          let data = {
+            ...virtualProducts[i],
+            count: virtualProducts[i].productSold,
+          };
+          virtualProducts2.push(data);
+        }
+        setTopProductSales(virtualProducts2);
+      });
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/users/list`)
+      .then((res) => {
+        setUser(res.data);
+      });
+    axios.get(`http://be-ecommerce-year4.herokuapp.com/email`).then((res) => {
       console.log(res);
       setEmail(res.data);
     });
-    axios.get(`http://localhost:4000/order`).then((res) => {
+    axios.get(`http://be-ecommerce-year4.herokuapp.com/order`).then((res) => {
       setOrder(res.data);
       console.log(res.data);
       const topCustomer2 = Object.values(

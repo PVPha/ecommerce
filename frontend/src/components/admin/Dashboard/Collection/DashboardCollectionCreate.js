@@ -34,7 +34,11 @@ export default function DashboardCollectionCreate(props) {
     formData.append("collectionName", collectionName);
     formData.append("collectionItems", collectionItems);
     axios
-      .post("http://localhost:4000/collection", formData, config)
+      .post(
+        "http://be-ecommerce-year4.herokuapp.com/collection",
+        formData,
+        config
+      )
       .then(() => {
         props.setCloseCreateFunc(false);
         props.setToastFunc(true);
@@ -52,9 +56,11 @@ export default function DashboardCollectionCreate(props) {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/products`).then((res) => {
-      setProduct(res.data);
-    });
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+      .then((res) => {
+        setProduct(res.data);
+      });
   }, []);
 
   return (

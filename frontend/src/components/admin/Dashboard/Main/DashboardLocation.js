@@ -14,7 +14,7 @@ export default function DashboardLocation(props) {
   const [location, setLocation] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/vietnam`).then((res) => {
+    axios.get(`http://be-ecommerce-year4.herokuapp.com/vietnam`).then((res) => {
       setLocation(res.data[0].tinh);
     });
   }, []);

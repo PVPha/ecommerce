@@ -13,7 +13,7 @@ export default function DashboardUserTable(props) {
   const [constOrder, setConstOrder] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/order`).then((res) => {
+    axios.get(`http://be-ecommerce-year4.herokuapp.com/order`).then((res) => {
       setOrder(res.data);
       setConstOrder(res.data);
     });
@@ -99,9 +99,12 @@ export default function DashboardUserTable(props) {
   const deleteOnClick = (event) => {
     const id = event.target.id;
     axios
-      .post(`http://localhost:4000/order/delete/:${event.target.id}`, {
-        id: id,
-      })
+      .post(
+        `http://be-ecommerce-year4.herokuapp.com/order/delete/:${event.target.id}`,
+        {
+          id: id,
+        }
+      )
       .then(() => {
         setOrder(
           order.filter((item) => {

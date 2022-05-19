@@ -38,7 +38,7 @@ function NewsBodyWidget(props) {
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/news`).then((res) => {
+    axios.get(`http://be-ecommerce-year4.herokuapp.com/news`).then((res) => {
       setNews(res.data);
     });
   }, []);

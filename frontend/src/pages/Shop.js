@@ -23,110 +23,116 @@ function Shop(props) {
 
   useEffect(() => {
     if (type === "shop") {
-      axios.get(`http://localhost:4000/products`).then((res) => {
-        const virtualCate = [...res.data];
-        //Get all category
-        const sortedcate = Object.values(
-          virtualCate.reduce((a, { productCate }) => {
-            a[productCate] = a[productCate] || { productCate, count: 0 };
-            a[productCate].count++;
-            return a;
-          }, Object.create(null))
-        );
-        //Sort and splice category by posts count
-        sortedcate.sort((a, b) => b.count - a.count);
-        setSortedCate(sortedcate);
-        const virtualData = [];
-        for (let i in res.data) {
-          if (cate) {
-            if (
-              res.data[i].productName.toLowerCase().includes(cate.toLowerCase())
-            ) {
+      axios
+        .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+        .then((res) => {
+          const virtualCate = [...res.data];
+          //Get all category
+          const sortedcate = Object.values(
+            virtualCate.reduce((a, { productCate }) => {
+              a[productCate] = a[productCate] || { productCate, count: 0 };
+              a[productCate].count++;
+              return a;
+            }, Object.create(null))
+          );
+          //Sort and splice category by posts count
+          sortedcate.sort((a, b) => b.count - a.count);
+          setSortedCate(sortedcate);
+          const virtualData = [];
+          for (let i in res.data) {
+            if (cate) {
+              if (
+                res.data[i].productName
+                  .toLowerCase()
+                  .includes(cate.toLowerCase())
+              ) {
+                virtualData.push(res.data[i]);
+              }
+            } else {
               virtualData.push(res.data[i]);
             }
-          } else {
-            virtualData.push(res.data[i]);
           }
-        }
-        setProducts(virtualData);
-      });
+          setProducts(virtualData);
+        });
     } else {
-      axios.get(`http://localhost:4000/products`).then((res) => {
-        const grCateList = Object.values(
-          res.data.reduce((a, { productGroupCate }) => {
-            a[productGroupCate] = a[productGroupCate] || { productGroupCate };
-            return a;
-          }, Object.create(null))
-        );
+      axios
+        .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+        .then((res) => {
+          const grCateList = Object.values(
+            res.data.reduce((a, { productGroupCate }) => {
+              a[productGroupCate] = a[productGroupCate] || { productGroupCate };
+              return a;
+            }, Object.create(null))
+          );
 
-        for (let i in grCateList) {
-          grCateList[i] = grCateList[i].productGroupCate;
-        }
-        const virtualCate = [];
-        if (grCateList.includes(cate)) {
-          for (let i in res.data) {
-            if (res.data[i].productGroupCate == cate) {
+          for (let i in grCateList) {
+            grCateList[i] = grCateList[i].productGroupCate;
+          }
+          const virtualCate = [];
+          if (grCateList.includes(cate)) {
+            for (let i in res.data) {
+              if (res.data[i].productGroupCate == cate) {
+                virtualCate.push(res.data[i]);
+              }
+            }
+          } else {
+            for (let i in res.data) {
               virtualCate.push(res.data[i]);
             }
           }
-        } else {
-          for (let i in res.data) {
-            virtualCate.push(res.data[i]);
-          }
-        }
 
-        //Get all category
-        const sortedcate = Object.values(
-          virtualCate.reduce((a, { productCate }) => {
-            a[productCate] = a[productCate] || { productCate, count: 0 };
-            a[productCate].count++;
-            return a;
-          }, Object.create(null))
-        );
-        //Sort and splice category by posts count
-        sortedcate.sort((a, b) => b.count - a.count);
-        setSortedCate(sortedcate);
+          //Get all category
+          const sortedcate = Object.values(
+            virtualCate.reduce((a, { productCate }) => {
+              a[productCate] = a[productCate] || { productCate, count: 0 };
+              a[productCate].count++;
+              return a;
+            }, Object.create(null))
+          );
+          //Sort and splice category by posts count
+          sortedcate.sort((a, b) => b.count - a.count);
+          setSortedCate(sortedcate);
 
-        const virtualData = [];
-        if (grCateList.includes(cate)) {
-          for (let i in res.data) {
-            if (cate) {
-              if (res.data[i].productGroupCate.includes(cate)) {
-                virtualData.push(res.data[i]);
-              }
-            } else {
-              virtualData.push(res.data[i]);
-            }
-          }
-        } else {
-          for (let i in res.data) {
-            if (!cate) {
-              if (res.data[i].productType.toLowerCase() === type) {
-                virtualData.push(res.data[i]);
-              }
-            } else {
-              if (
-                res.data[i].productType === type &&
-                cate &&
-                res.data[i].productGroupCate
-                  .toLowerCase()
-                  .split(" ")
-                  .join("-") === cate
-              ) {
-                virtualData.push(res.data[i]);
-              } else if (
-                res.data[i].productType.toLowerCase() === type &&
-                cate &&
-                res.data[i].productCate.toLowerCase().split(" ").join("-") ===
-                  cate
-              ) {
+          const virtualData = [];
+          if (grCateList.includes(cate)) {
+            for (let i in res.data) {
+              if (cate) {
+                if (res.data[i].productGroupCate.includes(cate)) {
+                  virtualData.push(res.data[i]);
+                }
+              } else {
                 virtualData.push(res.data[i]);
               }
             }
+          } else {
+            for (let i in res.data) {
+              if (!cate) {
+                if (res.data[i].productType.toLowerCase() === type) {
+                  virtualData.push(res.data[i]);
+                }
+              } else {
+                if (
+                  res.data[i].productType === type &&
+                  cate &&
+                  res.data[i].productGroupCate
+                    .toLowerCase()
+                    .split(" ")
+                    .join("-") === cate
+                ) {
+                  virtualData.push(res.data[i]);
+                } else if (
+                  res.data[i].productType.toLowerCase() === type &&
+                  cate &&
+                  res.data[i].productCate.toLowerCase().split(" ").join("-") ===
+                    cate
+                ) {
+                  virtualData.push(res.data[i]);
+                }
+              }
+            }
           }
-        }
-        setProducts(virtualData);
-      });
+          setProducts(virtualData);
+        });
     }
   }, []);
 

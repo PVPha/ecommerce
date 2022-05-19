@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../contexts/User";
 
-const ENDPOINT = "http://localhost:4000";
+const ENDPOINT = "http://be-ecommerce-year4.herokuapp.com";
 
 function OpenChatBtn(props) {
   const messageRef = useRef();
@@ -41,7 +41,11 @@ function OpenChatBtn(props) {
       );
     }
     axios
-      .get(`http://localhost:4000/chat/${sessionStorage.getItem("chat-id")}`)
+      .get(
+        `http://be-ecommerce-year4.herokuapp.com/chat/${sessionStorage.getItem(
+          "chat-id"
+        )}`
+      )
       .then((res) => {
         if (res.data.length > 0) setChatList(res.data[0].chatContent);
       });

@@ -12,7 +12,7 @@ export default function DashboardSubscriberTable(props) {
   const [constEmail, setConstEmail] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/email`).then((res) => {
+    axios.get(`http://be-ecommerce-year4.herokuapp.com/email`).then((res) => {
       setEmail(res.data);
       setConstEmail(res.data);
     });
@@ -98,9 +98,12 @@ export default function DashboardSubscriberTable(props) {
   }
 
   const deleteOnClick = (event) => {
-    axios.post(`http://localhost:4000/email/delete/:${event.target.id}`, {
-      id: event.target.id,
-    });
+    axios.post(
+      `http://be-ecommerce-year4.herokuapp.com/email/delete/:${event.target.id}`,
+      {
+        id: event.target.id,
+      }
+    );
     setEmail(
       email.filter((item) => {
         return item._id !== event.target.id;

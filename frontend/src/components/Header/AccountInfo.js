@@ -35,27 +35,31 @@ function AccountInfo(props) {
       // setUserAvt(userInfo.userAvt);
       setUserAddress(userInfo.userAddress);
       if (userInfo.userTinh !== "") {
-        axios.get(`http://localhost:4000/vietnam`).then((res) => {
-          setTinh(res.data[0].tinh);
-          setHuyen(res.data[0].huyen);
-          res.data[0].tinh.filter((item) => {
-            if (userInfo.userTinh === item.name) {
-              setProvinceId(item.id);
-            }
-            return null;
+        axios
+          .get(`http://be-ecommerce-year4.herokuapp.com/vietnam`)
+          .then((res) => {
+            setTinh(res.data[0].tinh);
+            setHuyen(res.data[0].huyen);
+            res.data[0].tinh.filter((item) => {
+              if (userInfo.userTinh === item.name) {
+                setProvinceId(item.id);
+              }
+              return null;
+            });
           });
-        });
         setUserTinh(userInfo.userTinh);
       } else {
-        axios.get(`http://localhost:4000/vietnam`).then((res) => {
-          setTinh(res.data[0].tinh);
-          setHuyen(res.data[0].huyen);
-        });
+        axios
+          .get(`http://be-ecommerce-year4.herokuapp.com/vietnam`)
+          .then((res) => {
+            setTinh(res.data[0].tinh);
+            setHuyen(res.data[0].huyen);
+          });
       }
       if (userInfo.userHuyen !== "") {
         setUserHuyen(userInfo.userHuyen);
       }
-      axios.get(`http://localhost:4000/order`).then((res) => {
+      axios.get(`http://be-ecommerce-year4.herokuapp.com/order`).then((res) => {
         const orderList2 = [];
         for (let i in res.data) {
           if (res.data[i].orderEmail === userInfo.userEmail) {
@@ -89,7 +93,7 @@ function AccountInfo(props) {
     localStorage.removeItem("token");
     axios
       .post(
-        `http://localhost:4000/users/update/${userInfo._id}`,
+        `http://be-ecommerce-year4.herokuapp.com/users/update/${userInfo._id}`,
         formData,
         config
       )

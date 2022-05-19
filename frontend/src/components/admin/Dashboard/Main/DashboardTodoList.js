@@ -18,7 +18,7 @@ export default function DashboardTodoList(props) {
   const [editTodoText, setEditTodoText] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/todos`).then((res) => {
+    axios.get(`http://be-ecommerce-year4.herokuapp.com/todos`).then((res) => {
       setTodoList(res.data);
     });
   }, []);
@@ -39,7 +39,7 @@ export default function DashboardTodoList(props) {
       }
     }
     setTodoList(virtualTodo);
-    axios.post("http://localhost:4000/todos/update", {
+    axios.post("http://be-ecommerce-year4.herokuapp.com/todos/update", {
       id: id,
       isDone: isDone,
     });
@@ -54,18 +54,22 @@ export default function DashboardTodoList(props) {
       todoDate: new Date(),
     };
     virtualTodo.push(data);
-    axios.post("http://localhost:4000/todos", data).then((res) => {
-      axios.get(`http://localhost:4000/todos`).then((res2) => {
-        setTodoList(res2.data);
-        setOpenNewTodo(false);
+    axios
+      .post("http://be-ecommerce-year4.herokuapp.com/todos", data)
+      .then((res) => {
+        axios
+          .get(`http://be-ecommerce-year4.herokuapp.com/todos`)
+          .then((res2) => {
+            setTodoList(res2.data);
+            setOpenNewTodo(false);
+          });
       });
-    });
   };
 
   const deleteTodo = (event) => {
     const id = event.target.id;
     axios
-      .post("http://localhost:4000/todos", {
+      .post("http://be-ecommerce-year4.herokuapp.com/todos", {
         delete: true,
         id: id,
       })
@@ -91,7 +95,7 @@ export default function DashboardTodoList(props) {
       }
     }
     setTodoList(virtualTodo);
-    axios.post("http://localhost:4000/todos/update", {
+    axios.post("http://be-ecommerce-year4.herokuapp.com/todos/update", {
       edit: true,
       id: id,
       todoContent: editTodoText,

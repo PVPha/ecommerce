@@ -17,7 +17,7 @@ import {
 import socketIOClient from "socket.io-client";
 import Axios from "axios";
 import { withRouter } from "react-router-dom";
-const ENDPOINT = "http://localhost:4000";
+const ENDPOINT = "http://be-ecommerce-year4.herokuapp.com";
 
 function Dashboard(props) {
   const menuItems = [
@@ -80,7 +80,9 @@ function Dashboard(props) {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       Axios.get(
-        `http://localhost:4000/users/${localStorage.getItem("user-id")}`,
+        `http://be-ecommerce-year4.herokuapp.com/users/${localStorage.getItem(
+          "user-id"
+        )}`,
         {
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         }

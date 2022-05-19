@@ -98,25 +98,29 @@ export default function DashboardProductEdit(props) {
       setProductSize(product.productSize);
       setProductGroupCate(product.productGroupCate);
 
-      axios.get(`http://localhost:4000/category`).then((res) => {
-        setCate(res.data);
-        const test = Object.values(
-          res.data.reduce((a, { groupCate }) => {
-            a[groupCate] = a[groupCate] || { groupCate };
-            return a;
-          }, Object.create(null))
-        );
-        setProductGroupCateList(res.data);
-      });
-      axios.get(`http://localhost:4000/products`).then((res) => {
-        const test = Object.values(
-          res.data.reduce((a, { productGroupCate }) => {
-            a[productGroupCate] = a[productGroupCate] || { productGroupCate };
-            return a;
-          }, Object.create(null))
-        );
-        setProductGroupCateList(test);
-      });
+      axios
+        .get(`http://be-ecommerce-year4.herokuapp.com/category`)
+        .then((res) => {
+          setCate(res.data);
+          const test = Object.values(
+            res.data.reduce((a, { groupCate }) => {
+              a[groupCate] = a[groupCate] || { groupCate };
+              return a;
+            }, Object.create(null))
+          );
+          setProductGroupCateList(res.data);
+        });
+      axios
+        .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+        .then((res) => {
+          const test = Object.values(
+            res.data.reduce((a, { productGroupCate }) => {
+              a[productGroupCate] = a[productGroupCate] || { productGroupCate };
+              return a;
+            }, Object.create(null))
+          );
+          setProductGroupCateList(test);
+        });
     }
   }, [product]);
   const onSubmit = (event) => {
@@ -154,7 +158,7 @@ export default function DashboardProductEdit(props) {
     formData.append("productDate", new Date());
     axios
       .post(
-        `http://localhost:4000/products/update/${product._id}`,
+        `http://be-ecommerce-year4.herokuapp.com/products/update/${product._id}`,
         formData,
         config
       )
@@ -168,7 +172,7 @@ export default function DashboardProductEdit(props) {
   };
 
   const addNewCate = () => {
-    axios.post("http://localhost:4000/category", {
+    axios.post("http://be-ecommerce-year4.herokuapp.com/category", {
       cateName: inputValue.cate,
       groupCate: productGroupCate,
     });
@@ -196,9 +200,12 @@ export default function DashboardProductEdit(props) {
     const items = [...productImg];
     items.splice(id, 1);
     setProductImg(items);
-    axios.post(`http://localhost:4000/products/update/${product._id}`, {
-      deleteImgId: id,
-    });
+    axios.post(
+      `http://be-ecommerce-year4.herokuapp.com/products/update/${product._id}`,
+      {
+        deleteImgId: id,
+      }
+    );
   };
 
   return (

@@ -16,7 +16,7 @@ export default function DashboardHeader(props) {
   const [unreadedNotice, setUnreadedNotice] = useState(0);
 
   useEffect(() => {
-    Axios.get(`http://localhost:4000/notice`).then((res) => {
+    Axios.get(`http://be-ecommerce-year4.herokuapp.com/notice`).then((res) => {
       setNotice(res.data.reverse());
       let count = 0;
       for (let i in res.data) {
@@ -32,7 +32,7 @@ export default function DashboardHeader(props) {
     if (openNotice) {
       setOpenNotice(false);
     } else {
-      Axios.post(`http://localhost:4000/notice/update`, {
+      Axios.post(`http://be-ecommerce-year4.herokuapp.com/notice/update`, {
         readAll: true,
       });
       setUnreadedNotice(0);

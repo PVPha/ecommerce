@@ -28,75 +28,83 @@ export default function DashboardOrderCreate(props) {
 
   useEffect(() => {
     if (chooseUser === false) {
-      axios.get(`http://localhost:4000/vietnam`).then((res) => {
-        setTinh(res.data[0].tinh);
-        setHuyen(res.data[0].huyen);
-        if (order) {
-          setOrderName(order.orderName);
-          setOrderEmail(order.orderEmail);
-          setOrderPhone(order.orderPhone);
-          setOrderAddress(order.orderAddress);
-          setOrderProvince(order.orderTinh);
-          setOrderDistric(order.orderHuyen);
-          setOrderPaymentMethod(order.orderPaymentMethod);
-          setOrderStatus(order.orderStatus);
-          if (typeof order.orderList !== "undefined") {
-            order.orderList.map((item) => {
-              axios
-                .get(`http://localhost:4000/products/${item.id}`)
-                .then((res) => {
-                  setProductList([]);
-                  res.data.count = item.amount;
-                  setProductList((productList) => [...productList, res.data]);
-                });
-              return null;
-            });
-            return;
-          }
-          setOrderPaymentMethod(order.orderPaymentMethod);
-          if (order.orderTinh !== "") {
-            res.data[0].tinh.filter((item) => {
-              if (order.orderTinh === item.name) {
-                setProvinceId(item.id);
-              }
-              return null;
-            });
+      axios
+        .get(`http://be-ecommerce-year4.herokuapp.com/vietnam`)
+        .then((res) => {
+          setTinh(res.data[0].tinh);
+          setHuyen(res.data[0].huyen);
+          if (order) {
+            setOrderName(order.orderName);
+            setOrderEmail(order.orderEmail);
+            setOrderPhone(order.orderPhone);
+            setOrderAddress(order.orderAddress);
             setOrderProvince(order.orderTinh);
-          }
-          if (order.orderHuyen !== "") {
             setOrderDistric(order.orderHuyen);
+            setOrderPaymentMethod(order.orderPaymentMethod);
+            setOrderStatus(order.orderStatus);
+            if (typeof order.orderList !== "undefined") {
+              order.orderList.map((item) => {
+                axios
+                  .get(
+                    `http://be-ecommerce-year4.herokuapp.com/products/${item.id}`
+                  )
+                  .then((res) => {
+                    setProductList([]);
+                    res.data.count = item.amount;
+                    setProductList((productList) => [...productList, res.data]);
+                  });
+                return null;
+              });
+              return;
+            }
+            setOrderPaymentMethod(order.orderPaymentMethod);
+            if (order.orderTinh !== "") {
+              res.data[0].tinh.filter((item) => {
+                if (order.orderTinh === item.name) {
+                  setProvinceId(item.id);
+                }
+                return null;
+              });
+              setOrderProvince(order.orderTinh);
+            }
+            if (order.orderHuyen !== "") {
+              setOrderDistric(order.orderHuyen);
+            }
           }
-        }
-      });
+        });
     }
-    axios.get(`http://localhost:4000/products`).then((res) => {
-      setProduct(res.data);
-    });
-    axios.get(`http://localhost:4000/users/list`).then((res) => {
-      setUserList(res.data);
-      res.data.filter((item) => {
-        if (item.userEmail === user) {
-          setOrderName(item.userName);
-          setOrderEmail(item.userEmail);
-          setOrderPhone(item.userPhone);
-          setOrderProvince(item.userProvince);
-          setOrderDistric(item.userDistric);
-          setOrderAddress(item.userAddress);
-          if (item.userTinh !== "") {
-            tinh.filter((item2) => {
-              if (item.userTinh === item2.name) {
-                setProvinceId(item2.id);
-              }
-            });
-            setOrderProvince(item.userTinh);
-          }
-          if (item.userHuyen !== "") {
-            setOrderDistric(item.userHuyen);
-          }
-        }
-        return null;
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+      .then((res) => {
+        setProduct(res.data);
       });
-    });
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/users/list`)
+      .then((res) => {
+        setUserList(res.data);
+        res.data.filter((item) => {
+          if (item.userEmail === user) {
+            setOrderName(item.userName);
+            setOrderEmail(item.userEmail);
+            setOrderPhone(item.userPhone);
+            setOrderProvince(item.userProvince);
+            setOrderDistric(item.userDistric);
+            setOrderAddress(item.userAddress);
+            if (item.userTinh !== "") {
+              tinh.filter((item2) => {
+                if (item.userTinh === item2.name) {
+                  setProvinceId(item2.id);
+                }
+              });
+              setOrderProvince(item.userTinh);
+            }
+            if (item.userHuyen !== "") {
+              setOrderDistric(item.userHuyen);
+            }
+          }
+          return null;
+        });
+      });
   }, [order, user]);
 
   const onSubmit = (event) => {
@@ -113,19 +121,22 @@ export default function DashboardOrderCreate(props) {
       listOrder.push(data);
     }
     axios
-      .post(`http://localhost:4000/order/update/${order._id}`, {
-        orderName: orderName,
-        orderEmail: orderEmail,
-        orderPhone: orderPhone,
-        orderAddress: orderAddress,
-        orderTinh: orderProvince,
-        orderHuyen: orderDistric,
-        orderList: listOrder,
-        orderTotal: total,
-        orderPaymentMethod: orderPaymentMethod,
-        orderStatus: orderStatus,
-        orderDate: new Date(),
-      })
+      .post(
+        `http://be-ecommerce-year4.herokuapp.com/order/update/${order._id}`,
+        {
+          orderName: orderName,
+          orderEmail: orderEmail,
+          orderPhone: orderPhone,
+          orderAddress: orderAddress,
+          orderTinh: orderProvince,
+          orderHuyen: orderDistric,
+          orderList: listOrder,
+          orderTotal: total,
+          orderPaymentMethod: orderPaymentMethod,
+          orderStatus: orderStatus,
+          orderDate: new Date(),
+        }
+      )
       .then(() => {
         props.setCloseEditFunc(false);
         props.setToastFunc(true);

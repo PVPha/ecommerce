@@ -15,7 +15,7 @@ export default function DashboardSupportTable(props) {
   const [constEmail, setConstEmail] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/support`).then((res) => {
+    axios.get(`http://be-ecommerce-year4.herokuapp.com/support`).then((res) => {
       setEmail(res.data);
       setConstEmail(res.data);
     });
@@ -99,9 +99,12 @@ export default function DashboardSupportTable(props) {
   }
 
   const deleteOnClick = (event) => {
-    axios.post(`http://localhost:4000/support/delete/:${event.target.id}`, {
-      id: event.target.id,
-    });
+    axios.post(
+      `http://be-ecommerce-year4.herokuapp.com/support/delete/:${event.target.id}`,
+      {
+        id: event.target.id,
+      }
+    );
     setEmail(
       email.filter((item) => {
         return item._id !== event.target.id;

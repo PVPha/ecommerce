@@ -20,9 +20,12 @@ export default function DashboardSubscriberCreate(props) {
     event.preventDefault();
 
     axios
-      .post(`http://localhost:4000/email/update/${email._id}`, {
-        subscriberEmail: subscriberEmail,
-      })
+      .post(
+        `http://be-ecommerce-year4.herokuapp.com/email/update/${email._id}`,
+        {
+          subscriberEmail: subscriberEmail,
+        }
+      )
       .then(() => {
         props.setCloseEditFunc(false);
         props.setToastFunc(true);

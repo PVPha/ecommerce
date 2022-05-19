@@ -7,7 +7,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
-const ENDPOINT = "http://localhost:4000";
+const ENDPOINT = "http://be-ecommerce-year4.herokuapp.com";
 
 export default function DashboardInbox(props) {
   const [allChatData, setAllChatData] = useState([]);
@@ -63,7 +63,7 @@ export default function DashboardInbox(props) {
     };
     socket.emit("messageSend-admin", data);
     setTimeout(() => {
-      axios.get(`http://localhost:4000/chat`).then((res) => {
+      axios.get(`http://be-ecommerce-year4.herokuapp.com/chat`).then((res) => {
         setAllChatData(res.data);
         setConstAllChatData(res.data);
         setChatInput("");
@@ -181,7 +181,7 @@ export default function DashboardInbox(props) {
                     {!item.userInfo && (
                       <img
                         src={
-                          "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163"
+                          "http://be-ecommerce-year4.herokuapp.com/images/16f9bbf512b66a228f7978e34d8fb163"
                         }
                         alt=""
                       ></img>
@@ -248,7 +248,7 @@ export default function DashboardInbox(props) {
                   {!sortDateChat[Number(roomIndex)].userInfo && (
                     <img
                       src={
-                        "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163"
+                        "http://be-ecommerce-year4.herokuapp.com/images/16f9bbf512b66a228f7978e34d8fb163"
                       }
                       alt=""
                     ></img>
@@ -398,7 +398,7 @@ export default function DashboardInbox(props) {
                 {!sortDateChat[Number(roomIndex)].userInfo && (
                   <img
                     src={
-                      "http://localhost:4000/images/16f9bbf512b66a228f7978e34d8fb163"
+                      "http://be-ecommerce-year4.herokuapp.com/images/16f9bbf512b66a228f7978e34d8fb163"
                     }
                     alt=""
                   ></img>

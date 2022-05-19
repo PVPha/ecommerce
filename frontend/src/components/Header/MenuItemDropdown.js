@@ -5,17 +5,17 @@ import Dropdown from "./Dropdown";
 import Axios from "axios";
 function MenuItemDropdown(props) {
   const arrImgPhone = [];
-  Axios.get(`http://localhost:4000/products`).then((res) => {
-    if (res.data.length > 0) {
-      res.data.map((item) => {
-        if (arrImgPhone.length <= 3) {
-          if (item.productType == "Phone") {
-            arrImgPhone.push(item.productImg[0]);
-          }
-        }
-      });
-    }
-  });
+  // Axios.get(`http://be-ecommerce-year4.herokuapp.com/products`).then((res) => {
+  //   if (res.data.length > 0) {
+  //     res.data.map((item) => {
+  //       if (arrImgPhone.length <= 3) {
+  //         if (item.productType == "Phone") {
+  //           arrImgPhone.push(item.productImg[0]);
+  //         }
+  //       }
+  //     });
+  //   }
+  // });
   const dropdownHover = props.dropdownHover;
   const location = props.location.pathname;
 
@@ -36,16 +36,15 @@ function MenuItemDropdown(props) {
         {props.label}
       </Link>
 
-      <Dropdown
-        className="dropdown-display"
-        dropdownContent={props.dropdownContent}
-        label={props.label}
-        scrolled={props.scrolled}
-        handleLeaveHover={props.handleLeaveHover}
-      />
-      {/* {dropdownHover === true && props.dropdownContent.length > 0 && (
-        
-      )} */}
+      {dropdownHover === true && props.dropdownContent.length > 0 && (
+        <Dropdown
+          className="dropdown-display"
+          dropdownContent={props.dropdownContent}
+          label={props.label}
+          scrolled={props.scrolled}
+          handleLeaveHover={props.handleLeaveHover}
+        />
+      )}
     </li>
   );
 }

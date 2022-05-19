@@ -24,25 +24,29 @@ export default function DashboardProductCreate(props) {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/products`).then((res) => {
-      const test = Object.values(
-        res.data.reduce((a, { productGroupCate }) => {
-          a[productGroupCate] = a[productGroupCate] || { productGroupCate };
-          return a;
-        }, Object.create(null))
-      );
-      setProductGroupCateList(test);
-    });
-    axios.get(`http://localhost:4000/category`).then((res) => {
-      setCate(res.data);
-      const test = Object.values(
-        res.data.reduce((a, { groupCate }) => {
-          a[groupCate] = a[groupCate] || { groupCate };
-          return a;
-        }, Object.create(null))
-      );
-      setProductGroupCateList(test);
-    });
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+      .then((res) => {
+        const test = Object.values(
+          res.data.reduce((a, { productGroupCate }) => {
+            a[productGroupCate] = a[productGroupCate] || { productGroupCate };
+            return a;
+          }, Object.create(null))
+        );
+        setProductGroupCateList(test);
+      });
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/category`)
+      .then((res) => {
+        setCate(res.data);
+        const test = Object.values(
+          res.data.reduce((a, { groupCate }) => {
+            a[groupCate] = a[groupCate] || { groupCate };
+            return a;
+          }, Object.create(null))
+        );
+        setProductGroupCateList(test);
+      });
   }, []);
 
   const onSubmit = (event) => {
@@ -80,7 +84,11 @@ export default function DashboardProductCreate(props) {
     formData.append("productDate", new Date());
 
     axios
-      .post("http://localhost:4000/products", formData, config)
+      .post(
+        "http://be-ecommerce-year4.herokuapp.com/products",
+        formData,
+        config
+      )
       .then((res) => {
         // console.log(res);
         props.setCloseCreateFunc(false);
@@ -90,7 +98,7 @@ export default function DashboardProductCreate(props) {
 
   const addNewCate = () => {
     axios
-      .post("http://localhost:4000/category", {
+      .post("http://be-ecommerce-year4.herokuapp.com/category", {
         cateName: inputValue.cate,
         groupCate: productGroupCate,
       })

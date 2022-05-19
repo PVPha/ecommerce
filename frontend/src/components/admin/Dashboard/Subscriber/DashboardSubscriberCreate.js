@@ -11,7 +11,7 @@ export default function DashboardSubscriberCreate(props) {
   const onSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:4000/email", {
+      .post("http://be-ecommerce-year4.herokuapp.com/email", {
         subscriber: subscriberEmail,
       })
       .then(() => {

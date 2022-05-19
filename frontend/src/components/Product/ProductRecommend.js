@@ -11,9 +11,11 @@ export default function ProductRecommend(props) {
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/products`).then((res) => {
-      setProducts(res.data);
-    });
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+      .then((res) => {
+        setProducts(res.data);
+      });
   }, []);
 
   const recommendProducts = [];

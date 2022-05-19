@@ -35,7 +35,7 @@ export default function DashboardOrderCreate(props) {
     }
 
     axios
-      .post("http://localhost:4000/order", {
+      .post("http://be-ecommerce-year4.herokuapp.com/order", {
         orderName: orderName,
         orderEmail: orderEmail,
         orderPhone: orderPhone,
@@ -58,39 +58,43 @@ export default function DashboardOrderCreate(props) {
   const [user, setUser] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/users/list`).then((res) => {
-      setUserList(res.data);
-      res.data.filter((item) => {
-        if (item.userEmail === user) {
-          setOrderName(item.userName);
-          setOrderEmail(item.userEmail);
-          setOrderPhone(item.userPhone);
-          setOrderProvince(item.userProvince);
-          setOrderDistric(item.userDistric);
-          setOrderAddress(item.userAddress);
-          if (item.userTinh !== "") {
-            tinh.filter((item2) => {
-              if (item.userTinh === item2.name) {
-                setProvinceId(item2.id);
-              }
-              return null;
-            });
-            setOrderProvince(item.userTinh);
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/users/list`)
+      .then((res) => {
+        setUserList(res.data);
+        res.data.filter((item) => {
+          if (item.userEmail === user) {
+            setOrderName(item.userName);
+            setOrderEmail(item.userEmail);
+            setOrderPhone(item.userPhone);
+            setOrderProvince(item.userProvince);
+            setOrderDistric(item.userDistric);
+            setOrderAddress(item.userAddress);
+            if (item.userTinh !== "") {
+              tinh.filter((item2) => {
+                if (item.userTinh === item2.name) {
+                  setProvinceId(item2.id);
+                }
+                return null;
+              });
+              setOrderProvince(item.userTinh);
+            }
+            if (item.userHuyen !== "") {
+              setOrderDistric(item.userHuyen);
+            }
           }
-          if (item.userHuyen !== "") {
-            setOrderDistric(item.userHuyen);
-          }
-        }
-        return null;
+          return null;
+        });
       });
-    });
-    axios.get(`http://localhost:4000/vietnam`).then((res) => {
+    axios.get(`http://be-ecommerce-year4.herokuapp.com/vietnam`).then((res) => {
       setTinh(res.data[0].tinh);
       setHuyen(res.data[0].huyen);
     });
-    axios.get(`http://localhost:4000/products`).then((res) => {
-      setProduct(res.data);
-    });
+    axios
+      .get(`http://be-ecommerce-year4.herokuapp.com/products`)
+      .then((res) => {
+        setProduct(res.data);
+      });
     if (user === "") {
       setOrderName("");
       setOrderEmail("");

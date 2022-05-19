@@ -52,35 +52,41 @@ export default function DashboardBody(props) {
   };
 
   useEffect(() => {
-    Axios.get(`http://localhost:4000/products/${props.productId}`).then(
-      (res) => {
-        setProduct(res.data);
-      }
-    );
-    Axios.get(`http://localhost:4000/news/${props.productId}`).then((res) => {
+    Axios.get(
+      `http://be-ecommerce-year4.herokuapp.com/products/${props.productId}`
+    ).then((res) => {
+      setProduct(res.data);
+    });
+    Axios.get(
+      `http://be-ecommerce-year4.herokuapp.com/news/${props.productId}`
+    ).then((res) => {
       setNews(res.data);
     });
-    Axios.get(`http://localhost:4000/users/list/${props.productId}`).then(
-      (res) => {
-        setUser(res.data);
-      }
-    );
-    Axios.get(`http://localhost:4000/order/${props.productId}`).then((res) => {
+    Axios.get(
+      `http://be-ecommerce-year4.herokuapp.com/users/list/${props.productId}`
+    ).then((res) => {
+      setUser(res.data);
+    });
+    Axios.get(
+      `http://be-ecommerce-year4.herokuapp.com/order/${props.productId}`
+    ).then((res) => {
       setOrder(res.data);
     });
-    Axios.get(`http://localhost:4000/collection/${props.productId}`).then(
-      (res) => {
-        setCollection(res.data);
-      }
-    );
-    Axios.get(`http://localhost:4000/email/${props.productId}`).then((res) => {
+    Axios.get(
+      `http://be-ecommerce-year4.herokuapp.com/collection/${props.productId}`
+    ).then((res) => {
+      setCollection(res.data);
+    });
+    Axios.get(
+      `http://be-ecommerce-year4.herokuapp.com/email/${props.productId}`
+    ).then((res) => {
       setEmail(res.data);
     });
-    Axios.get(`http://localhost:4000/support/${props.productId}`).then(
-      (res) => {
-        setSupport(res.data);
-      }
-    );
+    Axios.get(
+      `http://be-ecommerce-year4.herokuapp.com/support/${props.productId}`
+    ).then((res) => {
+      setSupport(res.data);
+    });
   }, [props.productId, props.openEdit]);
   const openMenuMobile = props.openMenuMobile;
 

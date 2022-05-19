@@ -25,7 +25,11 @@ export default function DashboardUserCreate(props) {
     formData.append("userPassword", userPassword);
     formData.append("userRole", userRole);
 
-    axios.post("http://localhost:4000/users/register", formData, config);
+    axios.post(
+      "http://be-ecommerce-year4.herokuapp.com/users/register",
+      formData,
+      config
+    );
     props.setCloseCreateFunc(false);
     props.setToastFunc(true);
   };
