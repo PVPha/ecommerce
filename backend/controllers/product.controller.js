@@ -39,9 +39,6 @@ module.exports.product = function (req, res) {
 module.exports.postProduct = async function (req, res) {
   const imgArr = [];
   req.files.map((item) => {
-    // imgArr.push(
-    //   `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
-    // );
     var img = fs.readFileSync(item.path);
     var encode_image = img.toString("base64");
     var finalImg = new Buffer.from(encode_image, "base64");
@@ -134,9 +131,6 @@ module.exports.updateProduct = async function (req, res) {
     const imgArr = [];
     if (req.files) {
       req.files.map((item) => {
-        // imgArr.push(
-        //   `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
-        // );
         var img = fs.readFileSync(item.path);
         var encode_image = img.toString("base64");
         var finalImg = new Buffer.from(encode_image, "base64");

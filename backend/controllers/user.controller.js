@@ -78,9 +78,6 @@ module.exports.updateUser = async function (req, res) {
   if (req.files.length > 0) {
     const imgArr = [];
     req.files.map((item) => {
-      // imgArr.push(
-      //   `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
-      // );
       var img = fs.readFileSync(item.path);
       var encode_image = img.toString("base64");
       var finalImg = new Buffer.from(encode_image, "base64");

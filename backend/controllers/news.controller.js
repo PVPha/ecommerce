@@ -22,9 +22,6 @@ module.exports.cate = function (req, res) {
 module.exports.postNews = async function (req, res) {
   const imgArr = [];
   req.files.map((item) => {
-    // imgArr.push(
-    //   `http://localhost:4000/${item.path.split("\\").slice(1).join("/")}`
-    // );
     var img = fs.readFileSync(item.path);
     var encode_image = img.toString("base64");
     var finalImg = new Buffer.from(encode_image, "base64");
@@ -78,9 +75,6 @@ module.exports.updateNews = async function (req, res) {
     if (req.files) {
       if (req.files.length > 0) {
         req.files.map((item) => {
-          // imgArr.push(
-          //   `http://localhost:4000/${item.path.split("/").slice(1).join("/")}`
-          // );
           var img = fs.readFileSync(item.path);
           var encode_image = img.toString("base64");
           var finalImg = new Buffer.from(encode_image, "base64");
