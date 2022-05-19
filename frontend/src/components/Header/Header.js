@@ -94,12 +94,9 @@ function Header(props) {
     setNavBar(navBar);
     axios.get(`http://localhost:4000/products`).then((res) => {
       let virtualNavBar = [...navBar];
-      const accessoriesProduct = [];
+      // const accessoriesProduct = [];
       const PhoneProduct = [];
       for (let i in res.data) {
-        if (res.data[i].productType === "Accessories") {
-          accessoriesProduct.push(res.data[i].productGroupCate);
-        }
         if (res.data[i].productType === "Phone") {
           PhoneProduct.push(res.data[i].productGroupCate);
         }
@@ -213,9 +210,10 @@ function Header(props) {
       totalCartVirtual += cartItems[i].count;
     }
     setTotalCart(totalCartVirtual);
-    window.addEventListener("scroll", onScroll);
+    //loop call api get products
+    // window.addEventListener("scroll", onScroll);
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      // window.removeEventListener("scroll", onScroll);
     };
   }, [
     clickedCart,

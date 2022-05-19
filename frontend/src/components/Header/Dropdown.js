@@ -57,13 +57,13 @@ function Dropdown(props) {
             </div>
           );
         })}
-        {props.label === "phone" && (
+        {/* {props.label.toLowerCase() === "phone" && (
           <DropdownSlider
             width={"450"}
             height={"300"}
             imgs={[PhoneImg, PhoneImg2, PhoneImg3]}
           ></DropdownSlider>
-        )}
+        )} */}
       </div>
     </div>
   );

@@ -12,13 +12,13 @@ import axios from "axios";
 
 function Home() {
   const [collection, setCollection] = useState([]);
-  useEffect(() => {
-    axios.get(`http://localhost:4000/collection`).then((res) => {
-      setCollection(res.data);
-    });
-    window.scrollTo(0, 0);
-    document.body.style.overflow = "unset";
-  }, []);
+  // useEffect(() => {
+  //   axios.get(`http://localhost:4000/collection`).then((res) => {
+  //     setCollection(res.data);
+  //   });
+  //   window.scrollTo(0, 0);
+  //   document.body.style.overflow = "unset";
+  // }, []);
 
   return (
     <div className="Home">

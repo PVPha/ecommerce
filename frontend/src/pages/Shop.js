@@ -8,6 +8,7 @@ import ShopBody from "../components/Shop/ShopBody";
 import bg from "../assets/S4.jpg";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import { abort } from "process";
 
 function Shop(props) {
   const [products, setProducts] = useState([]);
@@ -127,7 +128,7 @@ function Shop(props) {
         setProducts(virtualData);
       });
     }
-  }, [type, cate]);
+  }, []);
 
   return (
     <div className="Men">
